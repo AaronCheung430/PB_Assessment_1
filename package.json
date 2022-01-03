@@ -1,0 +1,19 @@
+{
+  "name": "pb_assessment_1",
+  "version": "1.0.0",
+  "description": "My first ever full-stack project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AaronCheung430/PB_Assessment_1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AaronCheung430/PB_Assessment_1/issues"
+  },
+  "homepage": "https://github.com/AaronCheung430/PB_Assessment_1#readme"
+}
