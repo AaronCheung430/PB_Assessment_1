@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AaronCheung430/PB_Assessment_1/issues"
   },
-  "homepage": "https://github.com/AaronCheung430/PB_Assessment_1#readme"
+  "homepage": "https://github.com/AaronCheung430/PB_Assessment_1#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
 }
