@@ -1,14 +1,406 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>9to5mac - An Apple a day keeps the doctor away</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
+  <!--Main Navigation-->
+  <header>
+    <!-- Intro settings -->
+    <style>
+      #intro {
+        /* Margin to fix overlapping fixed navbar */
+        margin-top: 58px;
+      }
+
+      @media (max-width: 991px) {
+        #intro {
+          /* Margin to fix overlapping fixed navbar */
+          margin-top: 45px;
+        }
+      }
+    </style>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+      <div class="container-md">
+        <!-- Navbar brand -->
+        <!-- The Home page logo -->
+        <a class="navbar-brand" target="_blank" href="https://mdbootstrap.com/docs/standard/">
+          <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="16" alt="" loading="lazy"
+            style="margin-top: -3px;" />
+        </a>
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+          aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarExample01">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" aria-current="page" href="#intro">Home</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow"
+                target="_blank">Learn Bootstrap 5</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://mdbootstrap.com/docs/standard/" target="_blank">Download MDB UI KIT</a>
+            </li> -->
+          </ul>
+
+          <ul class="navbar-nav d-flex flex-row">
+            <!-- Notification dropdown -->
+            <li class="nav-item dropdown me-3 me-lg-0">
+              <a
+                class="nav-link dropdown-toggle hidden-arrow"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-mdb-toggle="dropdown"
+                data-mdb-display="static"
+                aria-expanded="false"
+              >
+                <i class="fas fa-bell"></i>
+                <span class="badge rounded-pill badge-notification bg-danger">1</span>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-lg-end"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li>
+                  <a class="dropdown-item" href="#">iPhone 14 Pro now rumored to feature ‘hole + pill design’ instead of notch</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Another news</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item disabled">That's all of the news for today <i class="far fa-grin-squint"></i></a>
+                </li>
+              </ul>
+            </li>
+            <!-- Notification dropdown -->
+            <!-- Icons -->
+            <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link" href="https://9to5mac.com" rel="nofollow" target="_blank">
+                <i class="fas fa-globe"></i>
+              </a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link" href="https://www.youtube.com/c/9to5mac" rel="nofollow"
+                target="_blank">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link" href="https://www.facebook.com/9to5mac/" rel="nofollow" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link" href="https://twitter.com/9to5mac" rel="nofollow" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link" href="https://9to5mac.com/guides/podcast/" rel="nofollow" target="_blank">
+                <i class="fas fa-podcast"></i>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar -->
+
+
+    <!-- Jumbotron -->
+    <div id="intro" class="p-5 text-center bg-light">
+      <!-- <h1 class="mb-3 h2">Learn Bootstrap 5 with MDB</h1>
+      <p class="mb-3">Best & free guide of responsive web design</p>
+      <a class="btn btn-primary m-2" href="https://www.youtube.com/watch?v=c9B4TPnak1A" role="button" rel="nofollow"
+        target="_blank">Start tutorial</a>
+      <a class="btn btn-primary m-2" href="https://mdbootstrap.com/docs/standard/" target="_blank"
+        role="button">Download MDB UI KIT</a> -->
+    </div>
+    <!-- Jumbotron -->
+  </header>
+
+    <!--Main layout-->
+  <main class="my-5">
+    <div class="container">
+      <!--Section: News of the day-->
+      <section class="border-bottom pb-4 mb-5">
+        <div class="row gx-5">
+          <div class="col-md-6 mb-4">
+            <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light">
+              <img src="img/iPhone-14.jpg" class="img-fluid" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <a href="#!"><span class="badge bg-danger px-2 py-1 shadow-1-strong mb-3">News of the day</span></a>
+            <a href="#!" class="text-dark"><h4><strong>iPhone 14 Pro now rumored to feature ‘hole + pill design’ instead of notch</strong></h4></a>
+            <div class="col-6 text-left">
+              <a href='#!' class='text-muted'>
+                <h6><u> 15.07.2020</u></h6>
+              </a>
+            </div>
+            <a href='#!' class="text-muted">
+              <p>
+                A handful of rumors over the past several months have indicated that Apple plans on ditching the notch design
+                with this year’s iPhone 14 Pro. Initially, it was reported that Apple would adopt a hole-punch design to house the camera,
+                but now reliable analyst Ross Young says that Apple will use a “hole + pill design” on the iPhone 14 Pro and iPhone 14 Pro Max.
+              </p>
+            </a>
+            <button type="button" class="btn btn-primary">Read more</button>
+          </div>
+        </div>
+      </section>
+      <!--Section: News of the day-->
+
+      <!--Section: Content-->
+      <section>
+        <div class="row gx-5">
+          <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+            <!-- News block -->
+            <div>
+              <!-- Featured image -->
+              <div class="bg-image hover-overlay shadow-1-strong ripple mb-4" data-mdb-ripple-color="light">
+                <img src="https://mdbootstrap.com/img/new/fluid/city/113.jpg" class="img-fluid" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+              </div>
+
+              <!-- Article data -->
+              <div class="row mb-3">
+                <div class="col-6">
+                  <a href="" class="text-info">
+                    <i class="fas fa-lock"></i>
+                    Privacy
+                  </a>
+                </div>
+
+                <div class="col-6 text-end text-muted">
+                  <a href='#!' class='text-muted'>
+                    <h6><u> 15.07.2020</u></h6>
+                </a>
+                </div>
+              </div>
+
+              <!-- Article title and description -->
+              <a href="" class="text-dark">
+                <h5>This is title of the news</h5>
+              </a>
+              <a href="" class="text-muted">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
+                  id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
+                  adipisci iusto nam temporibus modi animi laboriosam?
+                  https://9to5mac.com/2021/06/15/apples-new-privacy-features/
+                </p>
+              </a>
+
+              <hr />
+
+              <!-- News -->
+              <a href="" class="text-dark">
+                <div class="row mb-4 border-bottom pb-2">
+                  <div class="col-3">
+                    <img src="https://mdbootstrap.com/img/new/standard/city/041.jpg"
+                      class="img-fluid shadow-1-strong rounded" alt="" />
+                  </div>
+
+                  <div class="col-9">
+                    <p class="mb-2"><strong>Lorem ipsum dolor sit amet</strong></p>
+                    <!-- <a href='#!' class='text-muted'> -->
+                      <p class='text-muted'>
+                        <u> 15.07.2020</u>
+                      </p>
+                    <!-- </a> -->
+                  </div>
+                </div>
+              </a>
+
+            </div>
+            <!-- News block -->
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+            <!-- News block -->
+            <div>
+              <!-- Featured image -->
+              <div class="bg-image hover-overlay shadow-1-strong ripple mb-4" data-mdb-ripple-color="light">
+                <img src="https://mdbootstrap.com/img/new/fluid/city/011.jpg" class="img-fluid" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+              </div>
+
+              <!-- Article data -->
+              <div class="row mb-3">
+                <div class="col-6">
+                  <a href="" class="text-danger">
+                    <i class="fas fa-laptop"></i>
+                    Mac
+                  </a>
+                </div>
+
+                <div class="col-6 text-end text-muted">
+                  <a href='#!' class='text-muted'>
+                    <h6><u> 15.07.2020</u></h6>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Article title and description -->
+              <a href="" class="text-dark">
+                <h5>This is title of the news</h5>
+              </a>
+              <a href="" class="text-muted">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
+                  id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
+                  adipisci iusto nam temporibus modi animi laboriosam?
+                  https://9to5mac.com/2022/01/11/macbook-air-vs-pro-comparison-which-should-you-buy/
+                </p>
+              </a>
+
+              <hr />
+
+
+              </a>
+            </div>
+            <!-- News block -->
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+            <!-- News block -->
+            <div>
+              <!-- Featured image -->
+              <div class="bg-image hover-overlay shadow-1-strong ripple mb-4" data-mdb-ripple-color="light">
+                <img src="https://mdbootstrap.com/img/new/fluid/city/018.jpg" class="img-fluid" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+              </div>
+
+              <!-- Article data -->
+              <div class="row mb-3">
+                <div class="col-6">
+                  <a href="" class="text-warning">
+                    <i class="fas fa-code"></i>
+                    Coding
+                  </a>
+                </div>
+
+                <div class="col-6 text-end text-muted">
+                  <a href='#!' class='text-muted'>
+                    <h6><u> 15.07.2020</u></h6>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Article title and description -->
+              <a href="" class="text-dark">
+                <h5>This is title of the news</h5>
+                </a>
+                <a href="" class="text-muted">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
+                  id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
+                  adipisci iusto nam temporibus modi animi laboriosam?
+                  https://9to5mac.com/2021/12/15/apple-releases-long-awaited-swift-playgrounds-update-with-the-ability-to-create-apps-using-ipad/
+                </p>
+              </a>
+
+              <hr />
+
+            </div>
+            <!-- News block -->
+          </div>
+        </div>
+      </section>
+      <!--Section: Content-->
+
+    </div>
+  </main>
+  <!--Main layout-->
+
+
+
+
+  <!--Footer-->
+  <footer class="bg-light text-lg-start">
+    <!-- <div class="py-4 text-center">
+      <a role="button" class="btn btn-primary btn-lg m-2"
+        href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow" target="_blank">
+        Learn Bootstrap 5
+      </a>
+      <a role="button" class="btn btn-primary btn-lg m-2" href="https://mdbootstrap.com/docs/standard/" target="_blank">
+        Download MDB UI KIT
+      </a>
+    </div> -->
+
+    <hr class="m-0" />
+
+    <div class="text-center py-4 align-items-center">
+      <p>Follow <a href="https://9to5mac.com/">9to5mac.com</a> on social media</p>
+        <a href="https://9to5mac.com" class="btn btn-primary m-1" role="button" rel="nofollow"
+        target="_blank">
+        <i class="fas fa-globe"></i>
+      </a>
+      <a href="https://www.youtube.com/c/9to5mac" class="btn btn-primary m-1" role="button"
+        rel="nofollow" target="_blank">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://www.facebook.com/9to5mac/" class="btn btn-primary m-1" role="button" rel="nofollow"
+        target="_blank">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://twitter.com/9to5mac" class="btn btn-primary m-1" role="button" rel="nofollow"
+        target="_blank">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://9to5mac.com/guides/podcast/" class="btn btn-primary m-1" role="button" rel="nofollow"
+        target="_blank">
+        <i class="fas fa-podcast"></i>
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      Contents from
+      <a class="text-dark" href="https://9to5mac.com/">9to5mac.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!--Footer-->
+
+
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript" src="js/script.js"></script>
 
 </body>
 
 </html>
+
