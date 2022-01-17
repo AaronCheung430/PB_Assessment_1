@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/mdb.min.css" />
     <!-- Custom styles -->
     <link rel="stylesheet" href="css/style.css" />
+    <script src='script.js' defer></script>
 </head>
 
 <body>
@@ -59,7 +60,7 @@
               <a class="nav-link" href="https://mdbootstrap.com/docs/standard/" target="_blank">Download MDB UI KIT</a>
             </li> -->
           </ul>
-
+          <button onclick="myFunction()">Click Me</button>
           <ul class="navbar-nav d-flex flex-row">
             <!-- Notification dropdown -->
             <li class="nav-item dropdown me-3 me-lg-0">
@@ -138,12 +139,15 @@
     <!-- </div> -->
     <div id="intro" class="p-5 text-center bg-light">
       <h1 class="mb-0 h4">9to5mac</h1>
+      <!-- <h1 class="mb-3">Heading</h1>
+      <h4 class="mb-3">Subheading</h4>
+      <a class="btn btn-primary" href="" role="button">Call to action</a> -->
     </div>
     <!-- Jumbotron -->
   </header>
 
     <!--Main layout-->
-  <main class="my-5">
+  <main class="my-5" id="myDIV">
     <div class="container">
       <!--Section: News of the day-->
       <section class="border-bottom pb-4 mb-5">
@@ -163,7 +167,7 @@
 
             <div class="row">
               <div class="col-6">
-                <a href="#!" class="text-success">
+                <a href="#!" class="text-primary">
                   <h6 class="h6 pb-1"><i class="fas fa-comment"></i> Rumors</h6>
                 </a>
               </div>
@@ -180,7 +184,7 @@
                 but now reliable analyst Ross Young says that Apple will use a “hole + pill design” on the iPhone 14 Pro and iPhone 14 Pro Max.
               </p>
             </a>
-            <button type="button" class="btn btn-success">Read more</button>
+            <button type="button" class="btn btn-primary">Read more</button>
           </div>
         </div>
       </section>
@@ -357,7 +361,7 @@
 
 
   <!--Main layout-->
-  <main class="mt-4 mb-5">
+  <main class="mt-4 mb-5" style="display: block">
     <div class="container">
       <!--Grid row-->
       <div class="row">
@@ -368,7 +372,7 @@
             <img src="img/iPhone-14.jpg"
               class="img-fluid shadow-2-strong rounded mb-4" alt="" />
 
-            <div class="row align-items-center mb-4">
+            <div class="row align-items-center mb-3">
               <div class="col-lg-6 text-center text-lg-start mb-3 m-lg-0">
                 <img src="img/author/chanceMiller.jpeg" class="rounded shadow-1-strong me-2"
                   height="35" alt="" loading="lazy" />
@@ -376,7 +380,7 @@
                 <a href="" class="text-dark">Chance Miller</a>
               </div>
               <div class="col-lg-6">
-                <a href="#!" class="text-end text-success">
+                <a href="#!" class="text-end text-primary">
                   <h6 class="h6 pb-1"><i class="fas fa-comment"></i> Rumors</h6>
                 </a>
               </div>
@@ -464,24 +468,88 @@
           <!--Section: Text-->
 
           <!--Section: Author-->
-          <section class="border-top border-bottom py-4 mb-4 pb-4">
+          <section class="border-top border-bottom py-3 mb-4 pb-4">
+            <p class="h4 mb-3">About the Author</p>
+
             <div class="row">
-              <div class="col-2">
+              <div class="col-1">
                 <img src="img/author/chanceMiller.jpeg"
                   class="img-fluid shadow-1-strong rounded" alt="" />
               </div>
 
-              <div class="col-10">
-                <p class="mb-2"><a href="" class="text-dark"><strong>Chance Miller</strong> <i class="fab fa-twitter me-1"></i></a></p>
+              <div class="col-11">
+                <p class="mb-2"><a href="https://twitter.com/ChanceHMiller" class="text-dark"><strong>Chance Miller</strong> <i class="fab fa-twitter me-1"></i></a></p>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio est ab iure
-                  inventore dolorum consectetur? Molestiae aperiam atque quasi consequatur aut?
-                  Repellendus alias dolor ad nam, soluta distinctio quis accusantium!
+                  Chance is an editor for the entire 9to5 network and covers the latest Apple news for 9to5Mac.
+                  <br>
+                  Tips, questions, typos to chance@9to5mac.com
                 </p>
               </div>
             </div>
           </section>
           <!--Section: Author-->
+
+          <!--Section: Comments-->
+          <section class="row d-flex justify-content-center mb-4">
+            <div class="card shadow-0 border" style="background-color: #f0f2f5;">
+              <div class="card-body p-4">
+                <div class="text-center mb-3">
+                  <p class="h5"><strong>Comments: 3</strong></p>
+                </div>
+
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <p class="small mb-0 mb-2"><strong>Martha</strong></p>
+                    <p class="small mb-0 ms-2">Type your note, and hit enter to add it</p>
+                  </div>
+                </div>
+
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <p class="small mb-0 mb-2"><strong>Johny</strong></p>
+                    <p class="small mb-0 ms-2">Type your note, and hit enter to add it</p>
+
+                  </div>
+                </div>
+
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <p class="small mb-0 mb-2"><strong>Rhys</strong></p>
+                    <p class="small mb-0 ms-2">Type your note, and hit enter to add it</p>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!--Section: Comments-->
+
+          <!--Section: Reply-->
+          <section>
+            <p class="h5 text-center mb-3"><strong>Join the discussion...</strong></p>
+
+            <form>
+              <!-- Name input -->
+              <div class="form-outline mb-4">
+                <input type="text" id="form4Example1" class="form-control" />
+                <label class="form-label" for="form4Example1">Name</label>
+              </div>
+
+              <!-- Message input -->
+              <div class="form-outline mb-4">
+                <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+                <label class="form-label" for="form4Example3">Comment</label>
+              </div>
+
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary btn-block mb-4">
+                Post
+              </button>
+            </form>
+          </section>
+          <!--Section: Reply-->
+
+
         </div>
         <!--Grid column-->
       </div>
@@ -489,10 +557,6 @@
     </div>
   </main>
   <!--Main layout-->
-
-
-
-
 
 
   <!--Footer-->
@@ -543,10 +607,10 @@
   <!--Footer-->
 
 
-    <!-- MDB -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
-    <!-- Custom scripts -->
-    <script type="text/javascript" src="js/script.js"></script>
+  <!-- MDB -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Custom scripts -->
+  <script type="text/javascript" src="js/script.js"></script>
 
 </body>
 
