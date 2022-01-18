@@ -12,8 +12,16 @@ let database = JSON.parse(fs.readFileSync("database.json"));
 app.use(express.json());
 app.use(express.static('client'));
 
-app.get('/blog1', function (req, resp){
-    resp.json(database["Blogs"]["Blog1"]);
+app.get('/blogs/:blogNumber', function (req, resp){
+    n = req.params.blogNumber
+    blogID = "Blog" + n
+    resp.json(database["Blogs"][blogID]);
+});
+
+app.get('/authors/:authorNumber', function (req, resp){
+    n = req.params.authorNumber
+    authorID = "Author" + n
+    resp.json(database["Authors"][authorID]);
 });
 
 

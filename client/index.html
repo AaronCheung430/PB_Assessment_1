@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>9to5mac - An Apple a day keeps the doctor away</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <!-- Google Fonts Roboto -->
@@ -12,8 +13,7 @@
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
     <!-- Custom styles -->
-    <link rel="stylesheet" href="css/style.css" />
-    <script src='script.js' defer></script>
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
 </head>
 
 <body>
@@ -39,7 +39,7 @@
       <div class="container-md">
         <!-- Navbar brand -->
         <!-- The Home page logo -->
-        <a class="navbar-brand" target="_blank" href="https://mdbootstrap.com/docs/standard/">
+        <a class="navbar-brand Home" href="#">
           <img src="img/9to5mac-logo.png" height="20" alt="" loading="lazy"
             style="margin-top: -3px;" />
         </a>
@@ -50,7 +50,7 @@
         <div class="collapse navbar-collapse" id="navbarExample01">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" aria-current="page" href="#intro">Home</a>
+              <a class="nav-link Home" aria-current="page" href="#intro">Home</a>
             </li>
             <!-- <li class="nav-item">
               <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow"
@@ -60,7 +60,6 @@
               <a class="nav-link" href="https://mdbootstrap.com/docs/standard/" target="_blank">Download MDB UI KIT</a>
             </li> -->
           </ul>
-          <button onclick="myFunction()">Click Me</button>
           <ul class="navbar-nav d-flex flex-row">
             <!-- Notification dropdown -->
             <li class="nav-item dropdown me-3 me-lg-0">
@@ -74,17 +73,14 @@
                 aria-expanded="false"
               >
                 <i class="fas fa-bell"></i>
-                <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                <span class="badge rounded-pill badge-notification bg-danger" id="notificationNumber">1</span>
               </a>
               <ul
                 class="dropdown-menu dropdown-menu-lg-end"
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <li>
-                  <a class="dropdown-item" href="#">iPhone 14 Pro now rumored to feature ‘hole + pill design’ instead of notch</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Another news</a>
+                  <a class="dropdown-item Blog1" href="#" id="notification">iPhone 14 Pro now rumored to feature ‘hole + pill design’ instead of notch</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
@@ -129,43 +125,63 @@
 
 
     <!-- Jumbotron -->
-    <!-- <div id="intro" class="p-5 text-center bg-light"> -->
-      <!-- <h1 class="mb-3 h2">Learn Bootstrap 5 with MDB</h1>
-      <p class="mb-3">Best & free guide of responsive web design</p>
-      <a class="btn btn-primary m-2" href="https://www.youtube.com/watch?v=c9B4TPnak1A" role="button" rel="nofollow"
-        target="_blank">Start tutorial</a>
-      <a class="btn btn-primary m-2" href="https://mdbootstrap.com/docs/standard/" target="_blank"
-        role="button">Download MDB UI KIT</a> -->
-    <!-- </div> -->
     <div id="intro" class="p-5 text-center bg-light">
-      <h1 class="mb-0 h4">9to5mac</h1>
-      <!-- <h1 class="mb-3">Heading</h1>
-      <h4 class="mb-3">Subheading</h4>
-      <a class="btn btn-primary" href="" role="button">Call to action</a> -->
+      <h1 class="mb-0 h4" id="textJumbotron">9to5mac</h1>
     </div>
     <!-- Jumbotron -->
   </header>
 
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" id="btnModal" data-mdb-target="#staticBackdrop">
+    <!-- data-mdb-toggle="modal" data-mdb-target="#staticBackdrop" -->
+    Launch demo modal
+  </button>
+
+  <p id="content"></p>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Error</h5>
+          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">Check your connection and the server
+          <br>Try again later...
+          <br><small class="text-muted">Error Code: 400</small>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-mdb-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onClick="refreshPage()">Refresh</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
     <!--Main layout-->
-  <main class="my-5" id="myDIV">
+  <main class="my-5" id="HomeBlock">
     <div class="container">
       <!--Section: News of the day-->
       <section class="border-bottom pb-4 mb-5">
         <div class="row gx-5">
           <div class="col-md-6 mb-4">
-            <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light">
+            <div class="bg-image hover-overlay ripple shadow-2-strong Blog1" data-mdb-ripple-color="light" id="Blog1cover">
               <img src="img/iPhone-14.jpg" class="img-fluid" />
-              <a href="#!">
+              <!-- <a href="#!"> -->
                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </a>
+              <!-- </a> -->
             </div>
           </div>
 
           <div class="col-md-6 mb-4">
-            <a href="#!"><span class="badge bg-danger px-2 py-1 shadow-1-strong mb-3">News of the day</span></a>
-            <a href="#!" class="text-dark"><h4><strong>iPhone 14 Pro now rumored to feature ‘hole + pill design’ instead of notch</strong></h4></a>
+            <a href="#!"><span class="badge bg-danger px-2 py-1 shadow-1-strong mb-3 Blog1" id="Blog1icon">News of the day</span></a>
+            <a href="#!" class="text-dark Blog1"><h4><strong>iPhone 14 Pro now rumored to feature ‘hole + pill design’ instead of notch</strong></h4></a>
 
-            <div class="row">
+            <div class="row Blog1">
               <div class="col-6">
                 <a href="#!" class="text-primary">
                   <h6 class="h6 pb-1"><i class="fas fa-comment"></i> Rumors</h6>
@@ -178,13 +194,13 @@
               </div>
             </div>
             <a href='#!' class="text-muted">
-              <p>
+              <p class="Blog1">
                 A handful of rumors over the past several months have indicated that Apple plans on ditching the notch design
                 with this year’s iPhone 14 Pro. Initially, it was reported that Apple would adopt a hole-punch design to house the camera,
                 but now reliable analyst Ross Young says that Apple will use a “hole + pill design” on the iPhone 14 Pro and iPhone 14 Pro Max.
               </p>
             </a>
-            <button type="button" class="btn btn-primary">Read more</button>
+            <button type="button" class="btn btn-primary Blog1">Read more</button>
           </div>
         </div>
       </section>
@@ -198,38 +214,36 @@
             <div>
               <!-- Featured image -->
               <div class="bg-image hover-overlay shadow-1-strong ripple mb-4" data-mdb-ripple-color="light">
-                <img src="https://mdbootstrap.com/img/new/fluid/city/113.jpg" class="img-fluid" />
-                <a href="#!">
-                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                </a>
+                <img src="img/Apples-privacy.jpg" class="img-fluid" />
+                  <div class="mask Blog2" style="background-color: rgba(251, 251, 251, 0.15);"></div>
               </div>
 
               <!-- Article data -->
               <div class="row mb-3">
-                <div class="col-6">
-                  <a href="" class="text-info">
+                <div class="col-6 Blog2">
+                  <a href="#!" class="text-info">
                     <i class="fas fa-lock"></i>
                     Privacy
                   </a>
                 </div>
 
-                <div class="col-6 text-end text-muted">
+                <div class="col-6 text-end text-muted Blog2">
                   <a href='#!' class='text-muted'>
-                    <h6><u> 15.07.2020</u></h6>
+                    <h6><u> 15.06.2021</u></h6>
                 </a>
                 </div>
               </div>
 
               <!-- Article title and description -->
-              <a href="" class="text-dark">
-                <h5>This is title of the news</h5>
+              <a href="#!" class="text-dark Blog2">
+                <h5>Tim Cook emphasizes Apple’s new privacy features to European users</h5>
               </a>
-              <a href="" class="text-muted">
+              <a href="#!" class="text-muted Blog2">
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
-                  id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
-                  adipisci iusto nam temporibus modi animi laboriosam?
-                  https://9to5mac.com/2021/06/15/apples-new-privacy-features/
+                  CEO Tim Cook has highlighted Apple’s new privacy features to European users, with a new video
+                  on the Apple UK YouTube channel.
+                  <br>
+                  Cook tops and tails a six-minute video, which mostly comprises privacy-related clips from WWDC...
                 </p>
               </a>
 
@@ -245,11 +259,11 @@
 
                   <div class="col-9">
                     <p class="mb-2"><strong>Lorem ipsum dolor sit amet</strong></p>
-                    <!-- <a href='#!' class='text-muted'> -->
+                    <a href='#!' class='text-muted'>
                       <p class='text-muted'>
                         <u> 15.07.2020</u>
                       </p>
-                    <!-- </a> -->
+                    </a>
                   </div>
                 </div>
               </a>
@@ -263,7 +277,7 @@
             <div>
               <!-- Featured image -->
               <div class="bg-image hover-overlay shadow-1-strong ripple mb-4" data-mdb-ripple-color="light">
-                <img src="https://mdbootstrap.com/img/new/fluid/city/011.jpg" class="img-fluid" />
+                <img src="/img/macbook-comparison.jpg" class="img-fluid" />
                 <a href="#!">
                   <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
@@ -279,22 +293,22 @@
                 </div>
 
                 <div class="col-6 text-end text-muted">
-                  <a href='#!' class='text-muted'>
-                    <h6><u> 15.07.2020</u></h6>
+                  <a href='' class='text-muted'>
+                    <h6><u> 11.01.2022</u></h6>
                   </a>
                 </div>
               </div>
 
               <!-- Article title and description -->
               <a href="" class="text-dark">
-                <h5>This is title of the news</h5>
+                <h5>MacBook Air vs MacBook Pro: Which should you buy?</h5>
               </a>
               <a href="" class="text-muted">
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
-                  id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
-                  adipisci iusto nam temporibus modi animi laboriosam?
-                  https://9to5mac.com/2022/01/11/macbook-air-vs-pro-comparison-which-should-you-buy/
+                  Apple’s MacBook lineup offers impressive performance and at first glance,
+                  the 2020 MacBook Air and 13-inch MacBook Pro seem quite similar. They have
+                  the same CPU/GPU, same ports, same FaceTime camera, and more. However,
+                  the 2021 14-inch MacBook Pro may complicate your decision. Let’s take a closer look...
                 </p>
               </a>
 
@@ -361,7 +375,7 @@
 
 
   <!--Main layout-->
-  <main class="mt-4 mb-5" style="display: block">
+  <main class="mt-4 mb-5" style="display: none" id="Blog2Block">
     <div class="container">
       <!--Grid row-->
       <div class="row">
@@ -558,6 +572,217 @@
   </main>
   <!--Main layout-->
 
+
+  <!--Main layout-->
+  <main class="mt-4 mb-5" style="display: none" id="BlogBlock">
+    <div class="container">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-md mb-4">
+          <!--Section: Post data-mdb-->
+          <section class="border-bottom mb-4">
+            <img src="img/iPhone-14.jpg"
+              class="img-fluid shadow-2-strong rounded mb-4" alt="" id="blogImg"/>
+
+            <div class="row align-items-center mb-3">
+              <div class="col-lg-6 text-center text-lg-start mb-3 m-lg-0">
+                <img src="img/author/chanceMiller.jpeg" class="rounded shadow-1-strong me-2"
+                  height="35" alt="" loading="lazy" id="blogAuthorImg"/>
+                <span> Published <u id="publishDate">12.01.2022</u> by</span>
+                <a href="" class="text-dark" id="blogAuthorName">Chance Miller</a>
+              </div>
+              <div class="col-lg-6">
+                <a href="#!" class="text-end text-primary" id="typeColour">
+                  <h6 class="h6 pb-1" id="typeName"><i class="fas fa-comment" id="typeIcon"></i> Rumors</h6>
+                </a>
+              </div>
+            </div>
+          </section>
+          <!--Section: Post data-mdb-->
+
+          <!--Section: Text-->
+          <section class="mb-4" id="mainContent">
+            <p>
+              A handful of rumors over the past several months have indicated that Apple plans on ditching
+              the notch design with this year’s iPhone 14 Pro. Initially, it was reported that Apple would
+              adopt a hole-punch design to house the camera, but now reliable analyst Ross Young says that
+              Apple will use a “hole + pill design” on the iPhone 14 Pro and iPhone 14 Pro Max.
+            </p>
+
+            <p>
+              For those unfamiliar, Ross Young is an analyst for Display Supply Chain Consultants. As such,
+              his reporting is usually based on indications from the supply chain similar to analysts such
+              as Ming-Chi Kuo. He’s proven to be extremely reliable over the past year, including being the
+              sole analyst to report that the 2021 MacBook Pros would feature mini-LED displays with ProMotion.
+            </p>
+
+            <p>
+              Young reports today that this design will be unique to Apple, similar to the notch. On the flip
+              side, a simple hole-punch design would have been very similar to the designs used by Android
+              manufacturers like Huawei and Samsung.
+            </p>
+
+            <p class="note note-light">
+              We now believe Apple will have a hole + pill design on the iPhone 14 Pro and Pro Max models.
+              The smaller hole will not be invisible…The two hole concept will be unique to Apple, like the notch,
+              not similar to all the pill models from Huawei.
+            </p>
+
+            <p>
+              This design was first shared in a leaked schematic from an anonymous Twitter account last September.
+              Young is now corroborating that this is the design Apple will use for the iPhone 14 Pro and iPhone 14
+              Pro Max. According to the anonymous Twitter account, the camera will be located on the right, while
+              the Face ID system will be located on the left-hand side.
+            </p>
+
+            <h4><strong>9to5Mac’s Take</strong></h4>
+
+            <p>
+              This design is certainly interesting. The combination of both a hole-punch and a pill-shaped cutout is still
+              smaller than the current notch, albeit only barely.
+            </p>
+
+            <p>
+              Reliable Apple analyst Ming-Chi Kuo was first to report that the iPhone 14 Pro and iPhone 14 Pro Max would
+              feature a new hole-punch design instead of a notch. Since Kuo first reported this change, questions have
+              centered on where all of the Face ID components would go. As a refresher, here’s everything currently
+              housed in the notch:
+            </p>
+
+            <ul>
+              <li>Infrared camera</li>
+              <li>Flood illuminator</li>
+              <li>Proximity sensor</li>
+              <li>Ambient light sensor</li>
+              <li>Microphone</li>
+              <li>Front camera</li>
+              <li>Dot projector</li>
+            </ul>
+
+            <p>
+              This combination hole-punch and pill-shaped cutout would seemingly give Apple more room to fit all of
+              these components outside of the notch. Remember that with the iPhone 13 this year, Apple did make the
+              notch slightly smaller in width, but slightly tapper in height.
+            </p>
+
+            <p>
+              The iPhone 14 lineup is expected to be available in two different screen sizes: 6.1 inches and 6.7
+              inches. This could come in the form of the iPhone 14 and iPhone 14 Max, then the iPhone 14 Pro and
+              iPhone 14 Pro Max. While the Pro models will reportedly get the new design, the other models will
+              seemingly retain the notch.
+            </p>
+
+            <p>
+              What do you think of this design? Would you prefer the notch, a single pill or single hole cutout,
+              or this combo design? Let us know down in the comments.
+            </p>
+          </section>
+          <!--Section: Text-->
+
+          <!--Section: Author-->
+          <section class="border-top border-bottom py-3 mb-4 pb-4">
+            <p class="h4 mb-3">About the Author</p>
+
+            <div class="row">
+              <div class="col-1">
+                <img src="img/author/chanceMiller.jpeg"
+                  class="img-fluid shadow-1-strong rounded" alt="" id="aboutAuthorImg"/>
+              </div>
+
+              <div class="col-11">
+                <p class="mb-2"><a href="https://twitter.com/ChanceHMiller" class="text-dark" id="aboutAuthorTwitter" target="_blank"><strong id="aboutAuthorName">Chance Miller</strong> <i class="fab fa-twitter me-1"></i></a></p>
+                <p id="aboutAuthorContent">
+                  Chance is an editor for the entire 9to5 network and covers the latest Apple news for 9to5Mac.
+                  <br>
+                  Tips, questions, typos to <a href="mailto:chance@9to5mac.com">chance@9to5mac.com</a>
+                </p>
+              </div>
+            </div>
+          </section>
+          <!--Section: Author-->
+
+          <!--Section: Comments-->
+          <section class="row d-flex justify-content-center mb-4">
+            <div class="card shadow-0 border" style="background-color: #f0f2f5;">
+              <div class="card-body p-4" id="commentSection">
+                <!-- <div class="text-center mb-3">
+                  <p class="h5"><strong id="commentTitle">Comments: 0</strong></p>
+                </div>
+
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <p class="small mb-0 mb-2"><strong>Martha</strong></p>
+                    <p class="small mb-0 ms-2">Type your note, and hit enter to add it</p>
+                  </div>
+                </div>
+
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <p class="small mb-0 mb-2"><strong>Johny</strong></p>
+                    <p class="small mb-0 ms-2">Type your note, and hit enter to add it</p>
+
+                  </div>
+                </div>
+
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <p class="small mb-0 mb-2"><strong>Rhys</strong></p>
+                    <p class="small mb-0 ms-2">Type your note, and hit enter to add it</p>
+
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </section>
+          <!--Section: Comments-->
+
+          <!--Section: Reply-->
+          <section>
+            <p class="h5 text-center mb-3"><strong>Join the discussion...</strong></p>
+
+            <form>
+              <!-- Name input -->
+              <div class="form-outline mb-4">
+                <input type="text" id="form4Example1" class="form-control" />
+                <label class="form-label" for="form4Example1">Name</label>
+              </div>
+
+              <!-- Message input -->
+              <div class="form-outline mb-4">
+                <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+                <label class="form-label" for="form4Example3">Comment</label>
+              </div>
+
+              <!-- Error alert -->
+              <div class="alert alert-warning alert-dismissible fade show" role="alert" style="display: none;" id="commentAlert">
+                You must filled in both <b>Name</b> and <b>Comment</b> in order to post it.
+              </div>
+
+              <!-- Comment posted -->
+              <div class="alert alert-success" role="alert" style="display: none;" id="commentPosted">
+                <h4 class="alert-heading">Well done!</h4>
+                <p>Aww yeah, you have successfully posted your comment.</p>
+                <hr>
+                <p class="mb-0">Return to <a href="#" class="alert-link Home">home page</a> to continue browsing other blogs.</p>
+              </div>
+
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary btn-block mb-4" id="commentSubmitBtn">
+                Post
+              </button>
+            </form>
+          </section>
+          <!--Section: Reply-->
+
+
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </div>
+  </main>
+  <!--Main layout-->
 
   <!--Footer-->
   <footer class="bg-light text-lg-start">
