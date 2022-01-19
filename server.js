@@ -11,6 +11,7 @@ let database = JSON.parse(fs.readFileSync("database.json"));
 
 app.use(express.json());
 app.use(express.static('client'));
+app.use(express.urlencoded());
 
 app.get('/blogs/:blogNumber', function (req, resp){
     n = req.params.blogNumber
@@ -24,7 +25,13 @@ app.get('/authors/:authorNumber', function (req, resp){
     resp.json(database["Authors"][authorID]);
 });
 
-
+app.post('/comments/new', function (req, resp){
+    // n = req.params.authorNumber
+    // authorID = "Author" + n
+    // resp.json(database["Authors"][authorID]);
+    console.log(req.body)
+    resp.send(req.body)
+});
 
 
 

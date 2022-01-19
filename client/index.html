@@ -741,17 +741,21 @@
           <section>
             <p class="h5 text-center mb-3"><strong>Join the discussion...</strong></p>
 
-            <form>
+            <form action="http://127.0.0.1:8090/comments/new" class="needs-validation" method='POST' novalidate>
               <!-- Name input -->
               <div class="form-outline mb-4">
-                <input type="text" id="form4Example1" class="form-control" />
+                <input type="text" id="form4Example1" class="form-control" name="Name" required/>
                 <label class="form-label" for="form4Example1">Name</label>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please enter a valid name.</div>
               </div>
 
               <!-- Message input -->
               <div class="form-outline mb-4">
-                <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+                <textarea class="form-control" id="form4Example3" rows="4" name="Comment" required></textarea>
                 <label class="form-label" for="form4Example3">Comment</label>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please enter a valid comment.</div>
               </div>
 
               <!-- Error alert -->
