@@ -73,6 +73,7 @@ document.querySelectorAll(".Blog1").forEach(function (i) {
             let response = await fetch('http://127.0.0.1:8090/blogs/1');
             if (response.ok) {
                 let body = await response.json();
+                document.getElementById('formBlog').value="1";
                 loadBlog(body)
             }
         } catch(e) {
@@ -88,6 +89,7 @@ document.querySelectorAll(".Blog2").forEach(function (i) {
             let response = await fetch('http://127.0.0.1:8090/blogs/2');
             if (response.ok) {
                 let body = await response.json();
+                document.getElementById('formBlog').value="2";
                 loadBlog(body)
             }
         } catch(e) {
@@ -171,12 +173,15 @@ document.getElementById("notification").addEventListener("click", function() {
 
 });
 
-document.getElementById("commentSubmitBtn").addEventListener("click", function() {
-    // event.preventDefault();
-    document.getElementById('commentAlert').style.display = "block";
-    // document.getElementById('commentPosted').style.display = "block";
+// document.getElementById("commentSubmitBtn").addEventListener("click", function() {
+//     // event.preventDefault();
+//     document.getElementById('commentAlert').style.display = "block";
+//     document.getElementById('formInputName').value = "";
+//     document.getElementById('formInputComment').value = "";
+//     document.getElementById("formComment").classList.remove('was-validated');
+//     // document.getElementById('commentPosted').style.display = "block";
 
-});
+// });
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
@@ -195,6 +200,10 @@ document.getElementById("commentSubmitBtn").addEventListener("click", function()
         form.classList.add('was-validated');
       }, false);
     });
+    // document.getElementById('commentAlert').style.display = "block";
+    // document.getElementById('formInputName').value = "";
+    // document.getElementById('formInputComment').value = "";
+    // document.getElementById("formComment").classList.remove('was-validated');
   })();
 
 

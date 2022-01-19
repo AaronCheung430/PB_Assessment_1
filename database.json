@@ -1,89 +1,95 @@
 {
-    "Blogs":
-    {
-        "Blog1":
+  "Blogs": {
+    "Blog1": {
+      "Title": "iPhone 14 Pro now rumored to feature ‘hole + pill design’ instead of notch",
+      "AuthorID": 1,
+      "Date": "12.01.2022",
+      "Type": [
+        "text-end text-primary",
+        "<i class=\"fas fa-comment\"></i> Rumors"
+      ],
+      "Image": "img/iPhone-14.jpg",
+      "Description": "<section> <p> A handful of rumors over the past several months have indicated that Apple plans on ditching the notch design with this year’s iPhone 14 Pro. Initially, it was reported that Apple would adopt a hole-punch design to house the camera, but now reliable analyst Ross Young says that Apple will use a “hole + pill design” on the iPhone 14 Pro and iPhone 14 Pro Max. </p> <p> For those unfamiliar, Ross Young is an analyst for Display Supply Chain Consultants. As such, his reporting is usually based on indications from the supply chain similar to analysts such as Ming-Chi Kuo. He’s proven to be extremely reliable over the past year, including being the sole analyst to report that the 2021 MacBook Pros would feature mini-LED displays with ProMotion. </p> <p> Young reports today that this design will be unique to Apple, similar to the notch. On the flip side, a simple hole-punch design would have been very similar to the designs used by Android manufacturers like Huawei and Samsung. </p> <p class=\"note note-light\"> We now believe Apple will have a hole + pill design on the iPhone 14 Pro and Pro Max models. The smaller hole will not be invisible…The two hole concept will be unique to Apple, like the notch, not similar to all the pill models from Huawei. </p> <p> This design was first shared in a leaked schematic from an anonymous Twitter account last September. Young is now corroborating that this is the design Apple will use for the iPhone 14 Pro and iPhone 14 Pro Max. According to the anonymous Twitter account, the camera will be located on the right, while the Face ID system will be located on the left-hand side. </p> <h4><strong>9to5Mac’s Take</strong></h4> <p> This design is certainly interesting. The combination of both a hole-punch and a pill-shaped cutout is still smaller than the current notch, albeit only barely. </p> <p> Reliable Apple analyst Ming-Chi Kuo was first to report that the iPhone 14 Pro and iPhone 14 Pro Max would feature a new hole-punch design instead of a notch. Since Kuo first reported this change, questions have centered on where all of the Face ID components would go. As a refresher, here’s everything currently housed in the notch: </p> <ul> <li>Infrared camera</li> <li>Flood illuminator</li> <li>Proximity sensor</li> <li>Ambient light sensor</li> <li>Microphone</li> <li>Front camera</li> <li>Dot projector</li> </ul> <p> This combination hole-punch and pill-shaped cutout would seemingly give Apple more room to fit all of these components outside of the notch. Remember that with the iPhone 13 this year, Apple did make the notch slightly smaller in width, but slightly tapper in height. </p> <p> The iPhone 14 lineup is expected to be available in two different screen sizes: 6.1 inches and 6.7 inches. This could come in the form of the iPhone 14 and iPhone 14 Max, then the iPhone 14 Pro and iPhone 14 Pro Max. While the Pro models will reportedly get the new design, the other models will seemingly retain the notch. </p> <p> What do you think of this design? Would you prefer the notch, a single pill or single hole cutout, or this combo design? Let us know down in the comments. </p> </section>",
+      "Comments": [
         {
-            "Title": "iPhone 14 Pro now rumored to feature ‘hole + pill design’ instead of notch",
-            "AuthorID": 1,
-            "Date": "12.01.2022",
-            "Type": ["text-end text-primary", "<i class=\"fas fa-comment\"></i> Rumors"],
-            "Image": "img/iPhone-14.jpg",
-            "Description": "<section> <p> A handful of rumors over the past several months have indicated that Apple plans on ditching the notch design with this year’s iPhone 14 Pro. Initially, it was reported that Apple would adopt a hole-punch design to house the camera, but now reliable analyst Ross Young says that Apple will use a “hole + pill design” on the iPhone 14 Pro and iPhone 14 Pro Max. <\/p> <p> For those unfamiliar, Ross Young is an analyst for Display Supply Chain Consultants. As such, his reporting is usually based on indications from the supply chain similar to analysts such as Ming-Chi Kuo. He’s proven to be extremely reliable over the past year, including being the sole analyst to report that the 2021 MacBook Pros would feature mini-LED displays with ProMotion. <\/p> <p> Young reports today that this design will be unique to Apple, similar to the notch. On the flip side, a simple hole-punch design would have been very similar to the designs used by Android manufacturers like Huawei and Samsung. </p> <p class=\"note note-light\"> We now believe Apple will have a hole + pill design on the iPhone 14 Pro and Pro Max models. The smaller hole will not be invisible…The two hole concept will be unique to Apple, like the notch, not similar to all the pill models from Huawei. </p> <p> This design was first shared in a leaked schematic from an anonymous Twitter account last September. Young is now corroborating that this is the design Apple will use for the iPhone 14 Pro and iPhone 14 Pro Max. According to the anonymous Twitter account, the camera will be located on the right, while the Face ID system will be located on the left-hand side. </p> <h4><strong>9to5Mac’s Take</strong></h4> <p> This design is certainly interesting. The combination of both a hole-punch and a pill-shaped cutout is still smaller than the current notch, albeit only barely. </p> <p> Reliable Apple analyst Ming-Chi Kuo was first to report that the iPhone 14 Pro and iPhone 14 Pro Max would feature a new hole-punch design instead of a notch. Since Kuo first reported this change, questions have centered on where all of the Face ID components would go. As a refresher, here’s everything currently housed in the notch: </p> <ul> <li>Infrared camera</li> <li>Flood illuminator</li> <li>Proximity sensor</li> <li>Ambient light sensor</li> <li>Microphone</li> <li>Front camera</li> <li>Dot projector</li> </ul> <p> This combination hole-punch and pill-shaped cutout would seemingly give Apple more room to fit all of these components outside of the notch. Remember that with the iPhone 13 this year, Apple did make the notch slightly smaller in width, but slightly tapper in height. </p> <p> The iPhone 14 lineup is expected to be available in two different screen sizes: 6.1 inches and 6.7 inches. This could come in the form of the iPhone 14 and iPhone 14 Max, then the iPhone 14 Pro and iPhone 14 Pro Max. While the Pro models will reportedly get the new design, the other models will seemingly retain the notch. </p> <p> What do you think of this design? Would you prefer the notch, a single pill or single hole cutout, or this combo design? Let us know down in the comments. </p> </section>",
-            "Comments": [
-                {
-                    "Name": "Gareth Moore",
-                    "Text": "That is ugly. I really can't see Apple doing that. A pill or a hole would be fine but not both."
-                },
-                {
-                    "Name": "BradP",
-                    "Text": "Apple is always ugly recently! Just name one product that is not ugly, can you?"
-                }
-            ]
+          "Name": "Gareth Moore",
+          "Text": "That is ugly. I really can't see Apple doing that. A pill or a hole would be fine but not both."
         },
-        "Blog2":
         {
-            "Title": "Tim Cook emphasizes Apple’s new privacy features to European users",
-            "AuthorID": 2,
-            "Date": "15.06.2021",
-            "Type": ["text-end text-info", "<i class=\"fas fa-lock\" id=\"typeIcon\"></i> Privacy"],
-            "Image": "img/Apples-privacy.jpg",
-            "Description": "<p> CEO <a href=\"https://9to5mac.com/guides/tim-cook/\" target=\"_blank\">Tim Cook</a> has highlighted Apple’s new <a href=\"https://9to5mac.com/guides/privacy/\" target=\"_blank\">privacy</a> features to European users, with a new video on the Apple UK YouTube channel (embedded below). </p> <p> Cook tops and tails a six-minute video, which mostly comprises privacy-related clips from <a href=\"https://9to5mac.com/guides/wwdc-2021/\" target=\"_blank\">WWDC</a> … </p> <p> Apple likely chose to speak specifically to European users given the particular emphasis placed on privacy there. The European Union implemented the world’s toughest privacy law back in 2018, the <a href=\"https://9to5mac.com/2018/05/25/gdpr-apple/\" target=\"_blank\">General Data Protection Regulation</a> (GDPR). Even Apple had to strengthen its safeguards in order to meet the extremely high standards set by the law. </p> <p> While some companies comply with GDPR only in Europe, Apple committed to offering the same enhanced privacy standards to customers globally. </p> <p class=\"note note-light\"> Apple is continuing its leadership in privacy, expanding our commitment and encouraging positive change across the industry. WWDC 2021 included the announcement of a number of new privacy features across iOS 15, iPadOS 15, macOS Monterey, watchOS 8 and iCloud. These new features are designed to help users across Europe and around the world better control and manage access to their data. <br> <br> Watch the WWDC 2021 privacy presentation for some highlights of what’s new, and a special message from Tim to European users, directly from the Steve Jobs Theater in Apple Park. </p> <p> Cook <a href=\"https://www.youtube.com/watch?v=vu3_01y4sLk\" target=\"_blank\">opens</a> by highlighting two existing features – privacy nutrition labels and App Tracking Transparency – and then closes with a familiar wrap-up on the company’s ethos in this area. </p> <p class=\"note note-light\"> These new privacy features are the latest in a long stream of innovations our teams have developed to improve transparency, and put users in control of their data. They are features which will help give users peace of mind by strengthening their control, and the freedom to use technology without worrying about who is looking over their shoulder. At Apple, our commitment is to give users choice over how their data is used, and to build privacy and security into everything we make. </p> <p> The WWDC clips go into detail on the specifics of Apple’s new privacy features, highlighting Mail Privacy Protection, App Privacy Report, on-device speech-recognition, iCloud Private Relay, and Hide My Email. </p> <p> You can watch the video below. </p> <div class=\"ratio ratio-16x9\"> <iframe src=\"https://www.youtube.com/embed/vu3_01y4sLk\" title=\"YouTube video\" allowfullscreen ></iframe> </div>",
-            "Comments": [
-                {
-                    "Name": "Waiting",
-                    "Text": "That is ugly. I really can't see Apple doing that. A pill or a hole would be fine but not both."
-                },
-                {
-                    "Name": "TBA",
-                    "Text": "Apple is always ugly recently! Just name one product that is not ugly, can you?"
-                },
-                {
-                    "Name": "TBA",
-                    "Text": "Apple is always ugly recently! Just name one product that is not ugly, can you?"
-                }
-            ]
-        },
-        "Blog3":
-        {
-            "Title": "MacBook Air vs MacBook Pro: Which should you buy",
-            "AuthorID": 2,
-            "Date": "11.01.2022",
-            "Type": ["text-end text-danger", "<i class=\"fas fa-laptop\" id=\"typeIcon\"></i> Mac"],
-            "Image": "/img/macbook-comparison.jpg",
-            "Description": "Text",
-            "Comments": [
-                {
-                    "Name": "Waiting",
-                    "Text": "That is ugly. I really can't see Apple doing that. A pill or a hole would be fine but not both."
-                },
-                {
-                    "Name": "TBA",
-                    "Text": "Apple is always ugly recently! Just name one product that is not ugly, can you?"
-                },
-                {
-                    "Name": "TBA",
-                    "Text": "Apple is always ugly recently! Just name one product that is not ugly, can you?"
-                }
-
-            ]
-
+          "Name": "BradP",
+          "Text": "Apple is always ugly recently! Just name one product that is not ugly, can you?"
         }
+      ]
     },
-    "Authors":
-    {
-        "Author1": {
-            "FullName": "Chance Miller",
-            "Image": "img/author/chanceMiller.jpeg",
-            "Twitter": "https://twitter.com/ChanceHMiller",
-            "Description": "Chance is an editor for the entire 9to5 network and covers the latest Apple news for 9to5Mac.<br>Tips, questions, typos to <a href=\"mailto:chance@9to5mac.com\">chance@9to5mac.com</a>",
-            "BlogsWritten": [1]
+    "Blog2": {
+      "Title": "Tim Cook emphasizes Apple’s new privacy features to European users",
+      "AuthorID": 2,
+      "Date": "15.06.2021",
+      "Type": [
+        "text-end text-info",
+        "<i class=\"fas fa-lock\" id=\"typeIcon\"></i> Privacy"
+      ],
+      "Image": "img/Apples-privacy.jpg",
+      "Description": "<p> CEO <a href=\"https://9to5mac.com/guides/tim-cook/\" target=\"_blank\">Tim Cook</a> has highlighted Apple’s new <a href=\"https://9to5mac.com/guides/privacy/\" target=\"_blank\">privacy</a> features to European users, with a new video on the Apple UK YouTube channel (embedded below). </p> <p> Cook tops and tails a six-minute video, which mostly comprises privacy-related clips from <a href=\"https://9to5mac.com/guides/wwdc-2021/\" target=\"_blank\">WWDC</a> … </p> <p> Apple likely chose to speak specifically to European users given the particular emphasis placed on privacy there. The European Union implemented the world’s toughest privacy law back in 2018, the <a href=\"https://9to5mac.com/2018/05/25/gdpr-apple/\" target=\"_blank\">General Data Protection Regulation</a> (GDPR). Even Apple had to strengthen its safeguards in order to meet the extremely high standards set by the law. </p> <p> While some companies comply with GDPR only in Europe, Apple committed to offering the same enhanced privacy standards to customers globally. </p> <p class=\"note note-light\"> Apple is continuing its leadership in privacy, expanding our commitment and encouraging positive change across the industry. WWDC 2021 included the announcement of a number of new privacy features across iOS 15, iPadOS 15, macOS Monterey, watchOS 8 and iCloud. These new features are designed to help users across Europe and around the world better control and manage access to their data. <br> <br> Watch the WWDC 2021 privacy presentation for some highlights of what’s new, and a special message from Tim to European users, directly from the Steve Jobs Theater in Apple Park. </p> <p> Cook <a href=\"https://www.youtube.com/watch?v=vu3_01y4sLk\" target=\"_blank\">opens</a> by highlighting two existing features – privacy nutrition labels and App Tracking Transparency – and then closes with a familiar wrap-up on the company’s ethos in this area. </p> <p class=\"note note-light\"> These new privacy features are the latest in a long stream of innovations our teams have developed to improve transparency, and put users in control of their data. They are features which will help give users peace of mind by strengthening their control, and the freedom to use technology without worrying about who is looking over their shoulder. At Apple, our commitment is to give users choice over how their data is used, and to build privacy and security into everything we make. </p> <p> The WWDC clips go into detail on the specifics of Apple’s new privacy features, highlighting Mail Privacy Protection, App Privacy Report, on-device speech-recognition, iCloud Private Relay, and Hide My Email. </p> <p> You can watch the video below. </p> <div class=\"ratio ratio-16x9\"> <iframe src=\"https://www.youtube.com/embed/vu3_01y4sLk\" title=\"YouTube video\" allowfullscreen ></iframe> </div>",
+      "Comments": [
+        {
+          "Name": "Waiting",
+          "Text": "That is ugly. I really can't see Apple doing that. A pill or a hole would be fine but not both."
         },
-        "Author2": {
-            "FullName": "Ben Lovejoy",
-            "Image": "img/author/benLovejoy.jpeg",
-            "Twitter": "https://twitter.com/benlovejoy",
-            "Description": "Ben Lovejoy is a British technology writer and EU Editor for 9to5Mac. He’s known for his op-eds and diary pieces, exploring his experience of Apple products over time, for a more rounded review. He also writes fiction, with two technothriller novels, a couple of SF shorts and a rom-com!",
-            "BlogsWritten": [2]
+        {
+          "Name": "TBA",
+          "Text": "Apple is always ugly recently! Just name one product that is not ugly, can you?"
+        },
+        {
+          "Name": "TBA",
+          "Text": "Apple is always ugly recently! Just name one product that is not ugly, can you?"
         }
+      ]
+    },
+    "Blog3": {
+      "Title": "MacBook Air vs MacBook Pro: Which should you buy",
+      "AuthorID": 2,
+      "Date": "11.01.2022",
+      "Type": [
+        "text-end text-danger",
+        "<i class=\"fas fa-laptop\" id=\"typeIcon\"></i> Mac"
+      ],
+      "Image": "/img/macbook-comparison.jpg",
+      "Description": "Text",
+      "Comments": [
+        {
+          "Name": "Waiting",
+          "Text": "That is ugly. I really can't see Apple doing that. A pill or a hole would be fine but not both."
+        },
+        {
+          "Name": "TBA",
+          "Text": "Apple is always ugly recently! Just name one product that is not ugly, can you?"
+        },
+        {
+          "Name": "TBA",
+          "Text": "Apple is always ugly recently! Just name one product that is not ugly, can you?"
+        }
+      ]
     }
+  },
+  "Authors": {
+    "Author1": {
+      "FullName": "Chance Miller",
+      "Image": "img/author/chanceMiller.jpeg",
+      "Twitter": "https://twitter.com/ChanceHMiller",
+      "Description": "Chance is an editor for the entire 9to5 network and covers the latest Apple news for 9to5Mac.<br>Tips, questions, typos to <a href=\"mailto:chance@9to5mac.com\">chance@9to5mac.com</a>",
+      "BlogsWritten": [
+        1
+      ]
+    },
+    "Author2": {
+      "FullName": "Ben Lovejoy",
+      "Image": "img/author/benLovejoy.jpeg",
+      "Twitter": "https://twitter.com/benlovejoy",
+      "Description": "Ben Lovejoy is a British technology writer and EU Editor for 9to5Mac. He’s known for his op-eds and diary pieces, exploring his experience of Apple products over time, for a more rounded review. He also writes fiction, with two technothriller novels, a couple of SF shorts and a rom-com!",
+      "BlogsWritten": [
+        2
+      ]
+    }
+  }
 }
