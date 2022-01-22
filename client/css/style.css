@@ -1,0 +1,21 @@
+/* Intro settings */
+#intro {
+    /* Margin to fix overlapping fixed navbar */
+    margin-top: 58px;
+  }
+
+  @media (max-width: 991px) {
+    #intro {
+      /* Margin to fix overlapping fixed navbar */
+      margin-top: 45px;
+    }
+  }
+
+
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -70px;
+    visibility: hidden;
+  }

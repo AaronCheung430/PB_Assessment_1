@@ -1,18 +1,27 @@
 
 
-  var home = document.getElementById("HomeBlock");
-  var blog = document.getElementById("BlogBlock");
+var home = document.getElementById("HomeBlock");
+var blog = document.getElementById("BlogBlock");
+var searchResult = document.getElementById("SearchResultBlock");
 
 
 function backToHome() {
     home.style.display = "block";
     blog.style.display = "none";
+    searchResult.style.display = "none";
     document.getElementById('textJumbotron').innerHTML="9to5mac";
 }
 
 function goToBlog() {
     home.style.display = "none";
     blog.style.display = "block";
+    searchResult.style.display = "none";
+}
+
+function goToSearchResult() {
+    home.style.display = "none";
+    blog.style.display = "none";
+    searchResult.style.display = "block";
 }
 
 
@@ -67,44 +76,56 @@ document.querySelectorAll(".Home").forEach(function (i) {
 //     })
 // });
 
-document.querySelectorAll(".Blog1").forEach(function (i) {
-    i.addEventListener("click", async function() {
-        try{
-            let response = await fetch('http://127.0.0.1:8090/blogs/1');
-            if (response.ok) {
-                let body = await response.json();
-                document.getElementById('formBlog').value="1";
-                loadBlog(body)
-            }
-        } catch(e) {
-            showModal()
-            document.getElementById('content').innerHTML="disconnected";
-        }
-    })
-});
+// document.querySelectorAll(".Blog1").forEach(function (i) {
+//     i.addEventListener("click", async function() {
+//         try{
+//             let response = await fetch('http://127.0.0.1:8090/blogs/1');
+//             if (response.ok) {
+//                 let body = await response.json();
+//                 document.getElementById('formBlog').value="1";
+//                 loadBlog(body)
+//             }
+//         } catch(e) {
+//             showModal()
+//         }
+//     })
+// });
 
-document.querySelectorAll(".Blog2").forEach(function (i) {
-    i.addEventListener("click", async function() {
-        try{
-            let response = await fetch('http://127.0.0.1:8090/blogs/2');
-            if (response.ok) {
-                let body = await response.json();
-                document.getElementById('formBlog').value="2";
-                loadBlog(body)
-            }
-        } catch(e) {
-            console.log(e)
-            showModal()
-            document.getElementById('content').innerHTML="disconnected";
-        }
-    })
-});
+// document.querySelectorAll(".Blog2").forEach(function (i) {
+//     i.addEventListener("click", async function() {
+//         try{
+//             let response = await fetch('http://127.0.0.1:8090/blogs/2');
+//             if (response.ok) {
+//                 let body = await response.json();
+//                 document.getElementById('formBlog').value="2";
+//                 loadBlog(body)
+//             }
+//         } catch(e) {
+//             showModal()
+//         }
+//     })
+// });
+
+// document.querySelectorAll(".Blog3").forEach(function (i) {
+//     i.addEventListener("click", async function() {
+//         try{
+//             let response = await fetch('http://127.0.0.1:8090/blogs/3');
+//             if (response.ok) {
+//                 let body = await response.json();
+//                 document.getElementById('formBlog').value="3";
+//                 loadBlog(body)
+//             }
+//         } catch(e) {
+//             showModal()
+//         }
+//     })
+// });
 
 
 function loadBlog(body) {
     document.getElementById('textJumbotron').innerHTML= body.Title
     document.getElementById('publishDate').innerHTML= body.Date
-    document.getElementById('typeColour').className= body.Type[0]
+    document.getElementById('typeColour').className= "text-end " + body.Type[0]
     document.getElementById('typeName').innerHTML= body.Type[1]
     document.getElementById('blogImg').src= body.Image
     document.getElementById('mainContent').innerHTML= body.Description
@@ -127,15 +148,11 @@ function loadBlog(body) {
 
             }
         } catch(e) {
-            console.log(e)
             showModal()
-            document.getElementById('content').innerHTML="disconnected";
         }
     }
 
     fetchAuthor(authorID)
-
-
 
     commentTitle= "Comments: " + body.Comments.length
 
@@ -155,17 +172,119 @@ function loadBlog(body) {
 
     document.getElementById('commentSection').innerHTML= commentHTML
 
-
-    document.getElementById('content').innerHTML= authorID
     goToBlog()
-}
+};
 
 
-// var elements = document.getElementsByClassName("Blog1");
-// elements.addEventListener("click", function() {
-//     console.log(elements)
-//     console.log("hi")
+
+
+
+
+
+// function loadSearch(body) {
+
+//     document.getElementById('searchCover').src= body.Image
+//     document.getElementById('searchBrief').innerHTML= body.Date
+//     document.getElementById('typeColour').className= "text-end " + body.Type[0]
+
+// };
+
+
+// var input = document.getElementById("search-addon");
+// document.getElementById("searchInput").addEventListener("keyup", function(event) {
+//   if (event.key === 'Enter') {
+//    event.preventDefault();
+// //    document.getElementById('searchForm').submit()
+//    alert('Hello World!')
+//   }
 // });
+
+
+const sf = document.getElementById("searchForm")
+
+sf.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const data = new FormData(sf);
+    const params = new URLSearchParams(data);
+    try{
+        const response = await fetch('http://127.0.0.1:8090/blog?' + params);
+        if (response.ok) {
+            let body = await response.json();
+
+            document.getElementById('content').innerHTML = body;
+            document.getElementById('textJumbotron').innerHTML= "Searches for: " + data.get('search_term');
+
+            // loadSearch(body)
+            if (body == "") {
+                document.getElementById('content').innerHTML = "Sorry, no matches were found. <br>Try a new search"
+                // goToSearchResult()
+                return
+            };
+            // document.getElementById('searchCover').src= body.Image
+            // document.getElementById('searchBrief').innerHTML= body.Date
+            // document.getElementById('typeColour').className= "text-end " + body.Type[0]
+
+            const counter = 0
+            const searchResultNumber = Object.keys(body).length
+            const searchResultHTML = `<div class="row">`
+
+            body.forEach(obj => {
+
+                if (counter == 3 && searchResultNumber > 0) {
+                    searchResultHTML += `</div><div class="row">`
+                    searchResultHTML += '3'
+
+                }
+
+                searchResultHTML += ``
+                counter += 1
+                searchResultNumber -= 1
+
+            });
+
+            searchResultHTML += `</div>`
+            document.getElementById('SearchResultBlock').innerHTML = searchResultHTML
+
+            // goToSearchResult()
+        };
+    } catch(e) {
+        showModal()
+    };
+
+
+
+
+});
+
+
+
+
+document.querySelectorAll(".SearchBlog").forEach(function (i) {
+    i.addEventListener("click", async function() {
+        try{
+            blogID = i.classList.item(0)
+            n = blogID.substring(4)
+            let response = await fetch('http://127.0.0.1:8090/blogs/' + n);
+            if (response.ok) {
+                let body = await response.json();
+                document.getElementById('formBlog').value= n.toString();
+                loadBlog(body)
+            }
+        } catch(e) {
++            showModal()
+        }
+    })
+});
+
+
+
+
+
+
+
+
+
+
 
 
 document.getElementById("notification").addEventListener("click", function() {
@@ -173,15 +292,17 @@ document.getElementById("notification").addEventListener("click", function() {
 
 });
 
-// document.getElementById("commentSubmitBtn").addEventListener("click", function() {
-//     // event.preventDefault();
-//     document.getElementById('commentAlert').style.display = "block";
-//     document.getElementById('formInputName').value = "";
-//     document.getElementById('formInputComment').value = "";
-//     document.getElementById("formComment").classList.remove('was-validated');
-//     // document.getElementById('commentPosted').style.display = "block";
 
-// });
+document.getElementById("commentSubmitBtn").addEventListener("click", function(event) {
+    // event.preventDefault();
+    // document.getElementById('commentAlert').style.display = "block";
+    // document.getElementById('formInputName').value = "";
+    // document.getElementById('formInputComment').value = "";
+    // document.getElementById("formComment").classList.remove('was-validated');
+    // document.getElementById('commentPosted').style.display = "block";
+
+});
+
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
@@ -200,9 +321,9 @@ document.getElementById("notification").addEventListener("click", function() {
         form.classList.add('was-validated');
       }, false);
     });
-    // document.getElementById('commentAlert').style.display = "block";
-    // document.getElementById('formInputName').value = "";
-    // document.getElementById('formInputComment').value = "";
+    document.getElementById('commentAlert').style.display = "block";
+    document.getElementById('formInputName').value = "";
+    document.getElementById('formInputComment').value = "";
     // document.getElementById("formComment").classList.remove('was-validated');
   })();
 
