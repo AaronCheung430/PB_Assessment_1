@@ -1,5 +1,3 @@
-
-
 var home = document.getElementById("HomeBlock");
 var blog = document.getElementById("BlogBlock");
 var searchResult = document.getElementById("SearchResultBlock");
@@ -24,7 +22,6 @@ function goToSearchResult() {
     searchResult.style.display = "block";
 }
 
-
 function refreshPage(){
     window.location.reload();
 }
@@ -33,23 +30,6 @@ function showModal() {
     myModal = new mdb.Modal(document.getElementById('staticBackdrop'))
     myModal.show()
 }
-
-// document.getElementById("btnModal").addEventListener("click", async function() {
-//     try{
-//       let response = await fetch('http://127.0.0.1:8090/blog1');
-//       if (response.ok) {
-//         console.log("hi")
-//         let body = await response.json();
-//         document.getElementById('content').innerHTML=body.Type;
-//         goToBlog()
-//       }
-//     } catch(e) {
-//     //   alert(e);
-//       showModal()
-//       document.getElementById("exampleModal").modal('show');
-//       document.getElementById('content').innerHTML="disconnected";
-//     }
-//   });
 
 document.querySelectorAll(".Home").forEach(function (i) {
     i.addEventListener("click", function() {
@@ -60,21 +40,23 @@ document.querySelectorAll(".Home").forEach(function (i) {
     })
 });
 
-// document.querySelectorAll(`[class^="Blog"]`).forEach(function (i) {
-//     i.addEventListener("click", async function() {
-//         try{
-//             console.log("sucess")
-//             let response = await fetch('http://127.0.0.1:8090/blogs/1');
-//             if (response.ok) {
-//                 let body = await response.json();
-//                 loadBlog(body)
-//             }
-//         } catch(e) {
-//             showModal()
-//             document.getElementById('content').innerHTML="disconnected";
-//         }
-//     })
-// });
+document.querySelectorAll(".showBlog").forEach(function (i) {
+    i.addEventListener("click", async function() {
+        try{
+            blogID = i.classList.item(0)
+            n = blogID.substring(4)
+            let response = await fetch('http://127.0.0.1:8090/blogs/' + n);
+            if (response.ok) {
+                let body = await response.json();
+                document.getElementById('formBlog').value= n.toString();
+                loadBlog(body)
+            }
+        } catch(e) {
++            showModal()
+        }
+    })
+});
+
 
 // document.querySelectorAll(".Blog1").forEach(function (i) {
 //     i.addEventListener("click", async function() {
@@ -83,36 +65,6 @@ document.querySelectorAll(".Home").forEach(function (i) {
 //             if (response.ok) {
 //                 let body = await response.json();
 //                 document.getElementById('formBlog').value="1";
-//                 loadBlog(body)
-//             }
-//         } catch(e) {
-//             showModal()
-//         }
-//     })
-// });
-
-// document.querySelectorAll(".Blog2").forEach(function (i) {
-//     i.addEventListener("click", async function() {
-//         try{
-//             let response = await fetch('http://127.0.0.1:8090/blogs/2');
-//             if (response.ok) {
-//                 let body = await response.json();
-//                 document.getElementById('formBlog').value="2";
-//                 loadBlog(body)
-//             }
-//         } catch(e) {
-//             showModal()
-//         }
-//     })
-// });
-
-// document.querySelectorAll(".Blog3").forEach(function (i) {
-//     i.addEventListener("click", async function() {
-//         try{
-//             let response = await fetch('http://127.0.0.1:8090/blogs/3');
-//             if (response.ok) {
-//                 let body = await response.json();
-//                 document.getElementById('formBlog').value="3";
 //                 loadBlog(body)
 //             }
 //         } catch(e) {
@@ -177,10 +129,6 @@ function loadBlog(body) {
 
 
 
-
-
-
-
 // function loadSearch(body) {
 
 //     document.getElementById('searchCover').src= body.Image
@@ -211,71 +159,96 @@ sf.addEventListener("submit", async function(event) {
         if (response.ok) {
             let body = await response.json();
 
-            document.getElementById('content').innerHTML = body;
+            // document.getElementById('content').innerHTML = body;
             document.getElementById('textJumbotron').innerHTML= "Searches for: " + data.get('search_term');
 
             // loadSearch(body)
             if (body == "") {
-                document.getElementById('content').innerHTML = "Sorry, no matches were found. <br>Try a new search"
-                // goToSearchResult()
+                document.getElementById('searchResultSection').innerHTML = "Sorry, no matches were found. <br>Try a new search"
+                goToSearchResult()
                 return
             };
-            // document.getElementById('searchCover').src= body.Image
-            // document.getElementById('searchBrief').innerHTML= body.Date
-            // document.getElementById('typeColour').className= "text-end " + body.Type[0]
 
-            const counter = 0
-            const searchResultNumber = Object.keys(body).length
-            const searchResultHTML = `<div class="row">`
+            let counter = 0
+            let searchResultNumber = Object.keys(body).length
+            let searchResultHTML = `<div class="row">`
 
-            body.forEach(obj => {
+            for (const blog of body) {
+
+                // n = blog[0].substring(4)
 
                 if (counter == 3 && searchResultNumber > 0) {
                     searchResultHTML += `</div><div class="row">`
-                    searchResultHTML += '3'
-
                 }
 
-                searchResultHTML += ``
+                searchResultHTML +=
+                `
+                <div class="col-lg-4 col-md-12 mb-4">
+                  <div class="card">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                      <img src="${blog[1].Image}" class="img-fluid" id="searchCover"/>
+                      <a href="#top">
+                        <div class="` + blog[0] + ` SearchBlog mask" style="background-color: rgba(251, 251, 251, 0.15);" id=:"searchResultCard${blog[0]}"></div>
+                    </a>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">${blog[1].Title}</h5>
+                  <div class="row">
+                    <div class="col-6">
+                      <span class="${blog[1].Type[0]}">
+                        <h6 class="h6 pb-1">${blog[1].Type[1]}</h6>
+                        </span>
+                      </div>
+                      <div class="col-6 text-center text-muted">
+                        <span class='text-muted'>
+                          <h6><u> ${blog[1].Date}</u></h6>
+                          </span>
+                        </div>
+                      </div>
+                      <p class="card-text">${blog[1].Brief}</p>
+                      <a href="#top" class="Blog1 SearchBlog btn btn-primary" id="searchReadBtn">Read</a>
+                    </div>
+                  </div>
+                </div>`
+
                 counter += 1
                 searchResultNumber -= 1
-
-            });
+            };
 
             searchResultHTML += `</div>`
-            document.getElementById('SearchResultBlock').innerHTML = searchResultHTML
+            document.getElementById('searchResultSection').innerHTML = searchResultHTML
 
-            // goToSearchResult()
+            // console.log(searchResultHTML)
+
+            goToSearchResult()
+
         };
     } catch(e) {
+        console.log(e)
         showModal()
     };
-
-
-
-
 });
 
 
-
-
-document.querySelectorAll(".SearchBlog").forEach(function (i) {
-    i.addEventListener("click", async function() {
-        try{
-            blogID = i.classList.item(0)
-            n = blogID.substring(4)
-            let response = await fetch('http://127.0.0.1:8090/blogs/' + n);
-            if (response.ok) {
-                let body = await response.json();
-                document.getElementById('formBlog').value= n.toString();
-                loadBlog(body)
+document.addEventListener("DOMNodeInserted", () => {
+    document.querySelectorAll(".SearchBlog").forEach(function (i) {
+        i.addEventListener("click", async function() {
+            console.log("You clicked")
+            try{
+                blogID = i.classList.item(0)
+                n = blogID.substring(4)
+                let response = await fetch('http://127.0.0.1:8090/blogs/' + n);
+                if (response.ok) {
+                    let body = await response.json();
+                    document.getElementById('formBlog').value= n.toString();
+                    loadBlog(body)
+                }
+            } catch(e) {
+                showModal()
             }
-        } catch(e) {
-+            showModal()
-        }
-    })
-});
-
+        })
+    });
+})
 
 
 

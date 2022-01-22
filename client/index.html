@@ -75,7 +75,7 @@
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <li>
-                  <a class="dropdown-item Blog1" href="#top" id="notification">iPhone 14 Pro now rumored to feature ‘hole + pill design’ instead of notch</a>
+                  <a class="Blog1 showBlog dropdown-item" href="#top" id="notification">iPhone 14 Pro now rumored to feature ‘hole + pill design’ instead of notch</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
@@ -133,7 +133,7 @@
     <!-- Launch demo modal
   </button>
   <span style="cursor: pointer;">text</span> -->
-  <p id="content"></p>
+  <!-- <p id="content"></p> -->
 
   <!-- Modal -->
   <div class="modal fade" id="staticBackdrop" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -164,19 +164,19 @@
       <section class="border-bottom pb-4 mb-5">
         <div class="row gx-5">
           <div class="col-md-6 mb-4">
-            <div class="bg-image hover-overlay ripple shadow-2-strong Blog1" data-mdb-ripple-color="light" id="Blog1cover">
+            <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light" id="Blog1cover">
               <img src="img/iPhone-14.jpg" class="img-fluid" />
               <a href="#top">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                <div class="Blog1 showBlog mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
               </a>
             </div>
           </div>
 
           <div class="col-md-6 mb-4">
-            <a href="#top"><span class="badge bg-danger px-2 py-1 shadow-1-strong mb-3 Blog1" id="Blog1icon">News of the day</span></a>
-            <a href="#top" class="text-dark Blog1"><h4><strong>iPhone 14 Pro now rumored to feature ‘hole + pill design’ instead of notch</strong></h4></a>
+            <a href="#top"><span class="Blog1 showBlog badge bg-danger px-2 py-1 shadow-1-strong mb-3" id="Blog1icon">News of the day</span></a>
+            <a href="#top" class="Blog1 showBlog text-dark"><h4><strong>iPhone 14 Pro now rumored to feature ‘hole + pill design’ instead of notch</strong></h4></a>
 
-            <div class="row Blog1">
+            <div class="Blog1 showBlog row">
               <div class="col-6">
                 <a href="#top" class="text-primary">
                   <h6 class="h6 pb-1"><i class="fas fa-comment"></i> Rumors</h6>
@@ -189,14 +189,14 @@
               </div>
             </div>
             <a href='#top' class="text-muted">
-              <p class="Blog1">
+              <p class="Blog1 showBlog">
                 A handful of rumors over the past several months have indicated that Apple plans on ditching the notch design
                 with this year’s iPhone 14 Pro. Initially, it was reported that Apple would adopt a hole-punch design to house the camera,
                 but now reliable analyst Ross Young says that Apple will use a “hole + pill design” on the iPhone 14 Pro and iPhone 14 Pro Max.
               </p>
             </a>
             <a href='#top'>
-              <button type="button" class="btn btn-primary Blog1">Read more</button>
+              <button type="button" class="Blog1 showBlog btn btn-primary">Read more</button>
             </a>
           </div>
         </div>
@@ -213,20 +213,20 @@
               <div class="bg-image hover-overlay shadow-1-strong ripple mb-4" data-mdb-ripple-color="light">
                 <img src="img/Apples-privacy.jpg" class="img-fluid" />
                 <a href="#top">
-                  <div class="mask Blog2" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                  <div class="Blog2 showBlog mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
               </div>
 
               <!-- Article data -->
               <div class="row mb-3">
-                <div class="col-6 Blog2">
+                <div class="Blog2 showBlog col-6">
                   <a href="#top" class="text-info">
                     <i class="fas fa-lock"></i>
                     Privacy
                   </a>
                 </div>
 
-                <div class="col-6 text-end text-muted Blog2">
+                <div class="Blog2 showBlog col-6 text-end text-muted">
                   <a href='#top' class='text-muted'>
                     <h6><u> 15.06.2021</u></h6>
                 </a>
@@ -234,10 +234,10 @@
               </div>
 
               <!-- Article title and description -->
-              <a href="#top" class="text-dark Blog2">
+              <a href="#top" class="Blog2 showBlog text-dark">
                 <h5>Tim Cook emphasizes Apple’s new privacy features to European users</h5>
               </a>
-              <a href="#top" class="text-muted Blog2">
+              <a href="#top" class="Blog2 showBlog text-muted">
                 <p>
                   CEO Tim Cook has highlighted Apple’s new privacy features to European users, with a new video
                   on the Apple UK YouTube channel.
@@ -278,20 +278,20 @@
               <div class="bg-image hover-overlay shadow-1-strong ripple mb-4" data-mdb-ripple-color="light">
                 <img src="/img/macbook-comparison.jpg" class="img-fluid" />
                 <a href="#top">
-                  <div class="mask Blog3" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                  <div class="Blog3 showBlog mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
               </div>
 
               <!-- Article data -->
               <div class="row mb-3">
                 <div class="col-6">
-                  <a href="#top" class="text-danger Blog3">
+                  <a href="#top" class="Blog3 showBlog text-danger">
                     <i class="fas fa-laptop"></i>
                     Mac
                   </a>
                 </div>
 
-                <div class="col-6 text-end text-muted Blog3">
+                <div class="Blog3 showBlog col-6 text-end text-muted">
                   <a href="#top" class="text-muted">
                     <h6><u> 11.01.2022</u></h6>
                   </a>
@@ -299,10 +299,10 @@
               </div>
 
               <!-- Article title and description -->
-              <a href="#top" class="text-dark Blog3">
+              <a href="#top" class="Blog3 showBlog text-dark">
                 <h5>MacBook Air vs MacBook Pro: Which should you buy?</h5>
               </a>
-              <a href="#top" class="text-muted Blog3">
+              <a href="#top" class="Blog3 showBlog text-muted">
                 <p>
                   Apple’s MacBook lineup offers impressive performance and at first glance,
                   the 2020 MacBook Air and 13-inch MacBook Pro seem quite similar. They have
@@ -434,32 +434,6 @@
           <section class="row d-flex justify-content-center mb-4">
             <div class="card shadow-0 border" style="background-color: #f0f2f5;">
               <div class="card-body p-4" id="commentSection">
-                <!-- <div class="text-center mb-3">
-                  <p class="h5"><strong id="commentTitle">Comments: 0</strong></p>
-                </div>
-
-                <div class="card mb-4">
-                  <div class="card-body">
-                    <p class="small mb-0 mb-2"><strong>Martha</strong></p>
-                    <p class="small mb-0 ms-2">Type your note, and hit enter to add it</p>
-                  </div>
-                </div>
-
-                <div class="card mb-4">
-                  <div class="card-body">
-                    <p class="small mb-0 mb-2"><strong>Johny</strong></p>
-                    <p class="small mb-0 ms-2">Type your note, and hit enter to add it</p>
-
-                  </div>
-                </div>
-
-                <div class="card mb-4">
-                  <div class="card-body">
-                    <p class="small mb-0 mb-2"><strong>Rhys</strong></p>
-                    <p class="small mb-0 ms-2">Type your note, and hit enter to add it</p>
-
-                  </div>
-                </div> -->
               </div>
             </div>
           </section>
@@ -519,7 +493,7 @@
 
 
   <!--Main layout-->
-  <main class="my-5" id="SearchResultBlock">
+  <main class="my-5" style="display: none" id="SearchResultBlock">
     <div class="container">
       <!--Section: Content-->
       <section class="text-center" id="searchResultSection">
@@ -529,13 +503,13 @@
             <div class="card">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                 <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" id="searchCover"/>
-                <a href="#top" class>
+                <a href="#top">
                   <div class="Blog1 SearchBlog mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
               </div>
               <div class="card-body">
-                <h5 class="card-title" id="searchTitle">iPhone 14 Pro now rumored to feature ‘hole + pill design’ instead of notch</h5>
-                <div class="row Blog1">
+                <h5 class="card-title">iPhone 14 Pro now rumored to feature ‘hole + pill design’ instead of notch</h5>
+                <div class="row">
                   <div class="col-6">
                     <span class="text-primary">
                       <h6 class="h6 pb-1"><i class="fas fa-comment"></i> Rumors</h6>
@@ -547,76 +521,12 @@
                     </span>
                   </div>
                 </div>
-                <p class="card-text" id="searchBrief">
+                <p class="card-text">
                   A handful of rumors over the past several months have indicated that Apple plans on ditching the notch design
                 with this year’s iPhone 14 Pro. Initially, it was reported that Apple would adopt a hole-punch design to house the camera,
                 but now reliable analyst Ross Young says that Apple will use a “hole + pill design” on the iPhone 14 Pro and iPhone 14 Pro Max.
                 </p>
                 <a href="#top" class="Blog1 SearchBlog btn btn-primary" id="searchReadBtn">Read</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card">
-              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" id="searchCover"/>
-                <a href="#top" class>
-                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title" id="searchTitle">iPhone 15555555555555555</h5>
-                <div class="row Blog1">
-                  <div class="col-6">
-                    <span class="text-primary">
-                      <h6 class="h6 pb-1"><i class="fas fa-comment"></i> Rumors</h6>
-                    </span>
-                  </div>
-                  <div class="col-6 text-center text-muted">
-                    <span class='text-muted'>
-                      <h6><u> 12.01.2022</u></h6>
-                    </span>
-                  </div>
-                </div>
-                <p class="card-text" id="searchBrief">
-                  A handful of rumors over the past several months have indicated that Apple plans on ditching the notch design
-                with this year’s iPhone 14 Pro. Initially, it was reported that Apple would adopt a hole-punch design to house the camera,
-                but now reliable analyst Ross Young says that Apple will use a “hole + pill design” on the iPhone 14 Pro and iPhone 14 Pro Max.
-                </p>
-                <a href="#!" class="btn btn-primary" id="searchReadBtn">Read</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card">
-              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" id="searchCover"/>
-                <a href="#top" class>
-                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title" id="searchTitle">iPhone 16666666666666</h5>
-                <div class="row Blog1">
-                  <div class="col-6">
-                    <span class="text-primary">
-                      <h6 class="h6 pb-1"><i class="fas fa-comment"></i> Rumors</h6>
-                    </span>
-                  </div>
-                  <div class="col-6 text-center text-muted">
-                    <span class='text-muted'>
-                      <h6><u> 12.01.2022</u></h6>
-                    </span>
-                  </div>
-                </div>
-                <p class="card-text" id="searchBrief">
-                  A handful of rumors over the past several months have indicated that Apple plans on ditching the notch design
-                with this year’s iPhone 14 Pro. Initially, it was reported that Apple would adopt a hole-punch design to house the camera,
-                but now reliable analyst Ross Young says that Apple will use a “hole + pill design” on the iPhone 14 Pro and iPhone 14 Pro Max.
-                </p>
-                <a href="#!" class="btn btn-primary" id="searchReadBtn">Read</a>
               </div>
             </div>
           </div>

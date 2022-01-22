@@ -11,7 +11,6 @@ app.use(express.urlencoded());
 app.get('/blogs/:blogNumber', function (req, resp){
     let n = req.params.blogNumber
     let blogID = "Blog" + n
-    console.log(blogID)
     resp.json(database["Blogs"][blogID]);
 });
 
