@@ -8,6 +8,7 @@ function backToHome() {
     blog.style.display = "none";
     searchResult.style.display = "none";
     document.getElementById('textJumbotron').innerHTML="9to5mac";
+    document.getElementById("commentForm").reset()
 }
 
 function goToBlog() {
@@ -48,11 +49,11 @@ document.querySelectorAll(".showBlog").forEach(function (i) {
             let response = await fetch('http://127.0.0.1:8090/blogs/' + n);
             if (response.ok) {
                 let body = await response.json();
-                document.getElementById('formBlog').value= n.toString();
+                document.getElementById('numberBlogForm').value= n.toString();
                 loadBlog(body)
             }
         } catch(e) {
-+            showModal()
+            showModal()
         }
     })
 });
@@ -64,7 +65,7 @@ document.querySelectorAll(".showBlog").forEach(function (i) {
 //             let response = await fetch('http://127.0.0.1:8090/blogs/1');
 //             if (response.ok) {
 //                 let body = await response.json();
-//                 document.getElementById('formBlog').value="1";
+//                 document.getElementById('numberBlogForm').value="1";
 //                 loadBlog(body)
 //             }
 //         } catch(e) {
@@ -106,6 +107,15 @@ function loadBlog(body) {
 
     fetchAuthor(authorID)
 
+    loadComments(body)
+
+    goToBlog()
+};
+
+function loadComments(body) {
+
+    console.log(body.Comments.length)
+
     commentTitle= "Comments: " + body.Comments.length
 
     let commentHTML = "<div class=\"text-center mb-3\"><p class=\"h5\"><strong>" + commentTitle + "</strong></p></div>"
@@ -123,11 +133,7 @@ function loadBlog(body) {
     });
 
     document.getElementById('commentSection').innerHTML= commentHTML
-
-    goToBlog()
-};
-
-
+}
 
 // function loadSearch(body) {
 
@@ -164,7 +170,7 @@ sf.addEventListener("submit", async function(event) {
 
             // loadSearch(body)
             if (body == "") {
-                document.getElementById('searchResultSection').innerHTML = "Sorry, no matches were found. <br>Try a new search"
+                document.getElementById('searchResultSection').innerHTML = "<h2>Sorry, no matches were found. <br>Try a new search</h2>"
                 goToSearchResult()
                 return
             };
@@ -206,7 +212,7 @@ sf.addEventListener("submit", async function(event) {
                         </div>
                       </div>
                       <p class="card-text">${blog[1].Brief}</p>
-                      <a href="#top" class="Blog1 SearchBlog btn btn-primary" id="searchReadBtn">Read</a>
+                      <a href="#top" class="` + blog[0] + ` SearchBlog btn btn-primary" id="searchReadBtn">Read</a>
                     </div>
                   </div>
                 </div>`
@@ -240,7 +246,7 @@ document.addEventListener("DOMNodeInserted", () => {
                 let response = await fetch('http://127.0.0.1:8090/blogs/' + n);
                 if (response.ok) {
                     let body = await response.json();
-                    document.getElementById('formBlog').value= n.toString();
+                    document.getElementById('numberBlogForm').value= n.toString();
                     loadBlog(body)
                 }
             } catch(e) {
@@ -250,59 +256,54 @@ document.addEventListener("DOMNodeInserted", () => {
     });
 })
 
-
-
-
-
-
-
-
-
-
-
 document.getElementById("notification").addEventListener("click", function() {
     document.getElementById('notificationNumber').style.display = "none";
 
 });
 
+const cf = document.getElementById("commentForm")
 
-document.getElementById("commentSubmitBtn").addEventListener("click", function(event) {
-    // event.preventDefault();
-    // document.getElementById('commentAlert').style.display = "block";
-    // document.getElementById('formInputName').value = "";
-    // document.getElementById('formInputComment').value = "";
-    // document.getElementById("formComment").classList.remove('was-validated');
-    // document.getElementById('commentPosted').style.display = "block";
+cf.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const data = new FormData(cf);
+    const formData = JSON.stringify(Object.fromEntries(data.entries()))
+    const blogID = data.get("Blog")
+    try{
+        const response = await fetch('http://127.0.0.1:8090/comments/new',
+        {method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: formData});
+
+        if (response.ok) {
+            let body = await response.json();
+
+            document.getElementById('commentSection').innerHTML= ""
+            loadComments(body)
+
+            document.getElementById("commentForm").reset()
+            document.getElementById('numberBlogForm').value= blogID.toString();
+
+            document.getElementById('commentAlert').style.display = "none";
+            document.getElementById('commentPosted').style.display = "block";
+
+        }
+
+    } catch(e) {
+        console.log(e)
+        showModal()
+    };
 
 });
 
-
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(() => {
-    'use strict';
-
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    const forms = document.querySelectorAll('.needs-validation');
-
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms).forEach((form) => {
-      form.addEventListener('submit', (event) => {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-    document.getElementById('commentAlert').style.display = "block";
-    document.getElementById('formInputName').value = "";
-    document.getElementById('formInputComment').value = "";
-    // document.getElementById("formComment").classList.remove('was-validated');
-  })();
+function validateForm() {
+    var x = document.forms["commentForm"]["Name"].value;
+    var y = document.forms["commentForm"]["Text"].value;
+    if (x == "" || y == "")  {
+        document.getElementById('commentAlert').style.display = "block";
+        document.getElementById('commentPosted').style.display = "none";
+    }
+  }
 
 
-// document.getElementById("btnModal").addEventListener("click", function() {
-//     console.log("hiiii");
-// });
 
 

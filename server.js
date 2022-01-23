@@ -29,7 +29,6 @@ app.get('/blog', function (req, resp){
     resp.send(searchBlogs)
 });
 
-
 app.get('/authors/:authorNumber', function (req, resp){
     let n = req.params.authorNumber
     let authorID = "Author" + n
@@ -38,11 +37,12 @@ app.get('/authors/:authorNumber', function (req, resp){
 
 app.post('/comments/new', function (req, resp){
     let form = req.body
-    // console.log(form)
+    console.log(JSON.stringify(form))
     // form.Blog
     // if form.Blog
     let n = form["Blog"]
     let blogID = "Blog" + n
+    console.log(blogID)
     delete form["Blog"];
 
     database.Blogs[blogID].Comments.push(form)
@@ -51,28 +51,7 @@ app.post('/comments/new', function (req, resp){
         if (err) console.log("Error writing file:", err);
     });
 
-    resp.send(database.Blogs[blogID].Comments)
+    resp.send(database.Blogs[blogID])
 });
 
-// app.post('/blogs/new', function (req, resp){
-//     form = req.body
-//     n = form["Blog"]
-//     blogID = "Blog" + n
-//     delete form["Blog"];
-
-//     database.Blogs[blogID].Comments.push(form)
-
-//     fs.writeFile("./database.json", JSON.stringify(database, null, 2), err => {
-//         if (err) console.log("Error writing file:", err);
-//     });
-
-//     resp.send(database.Blogs[blogID].Comments)
-// });
-
-
-
-
 app.listen(8090)
-
-
-
