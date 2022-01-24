@@ -25,8 +25,8 @@
         <!-- Navbar brand -->
         <!-- The Home page logo -->
         <a class="navbar-brand Home" href="#">
-          <img src="img/9to5mac-logo.png" height="20" alt="" loading="lazy"
-            style="margin-top: -3px;" />
+          <img src="img/9to5mac-logo.png" height="20" loading="lazy"
+            style="margin-top: -3px;" alt="9to5mac Logo"/>
         </a>
         <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
           aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
@@ -145,18 +145,18 @@
       </div>
     </div>
   </div>
+  <!-- Modal -->
 
+  <main>
 
-
-    <!--Main layout-->
-  <main class="my-5" id="HomeBlock">
-    <div class="container">
+    <!--Home layout-->
+    <div class="container my-5" id="HomeBlock">
       <!--Section: News of the day-->
       <section class="border-bottom pb-4 mb-5">
         <div class="row gx-5">
           <div class="col-md-6 mb-4">
             <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light" id="Blog1cover">
-              <img src="img/iPhone-14.jpg" class="img-fluid" />
+              <img src="img/iPhone-14.jpg" class="img-fluid" alt="iPhone 14 cover image"/>
               <a href="#top">
                 <div class="Blog1 showBlog mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
               </a>
@@ -202,7 +202,7 @@
             <div>
               <!-- Featured image -->
               <div class="bg-image hover-overlay shadow-1-strong ripple mb-4" data-mdb-ripple-color="light">
-                <img src="img/brad-pitt-apple-tv.jpg" class="img-fluid" />
+                <img src="img/brad-pitt-apple-tv.jpg" class="img-fluid" alt="Brad Pitt cover image"/>
                 <a href="#top">
                   <div class="Blog2 showBlog mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
@@ -239,7 +239,7 @@
 
               <!-- Featured image -->
               <div class="bg-image hover-overlay shadow-1-strong ripple mb-4" data-mdb-ripple-color="light">
-                <img src="/img/m1-shirt.jpg" class="img-fluid" />
+                <img src="/img/m1-shirt.jpg" class="img-fluid" alt="m1 t-shirt cover image"/>
                 <a href="#top">
                   <div class="Blog3 showBlog mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
@@ -283,7 +283,7 @@
             <div>
               <!-- Featured image -->
               <div class="bg-image hover-overlay shadow-1-strong ripple mb-4" data-mdb-ripple-color="light">
-                <img src="img/apple-fitness-2022.jpg" class="img-fluid" />
+                <img src="img/apple-fitness-2022.jpg" class="img-fluid" alt="Apple fitness cover image"/>
                 <a href="#top">
                   <div class="Blog4 showBlog mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
@@ -322,7 +322,7 @@
 
               <!-- Featured image -->
               <div class="bg-image hover-overlay shadow-1-strong ripple mb-4" data-mdb-ripple-color="light">
-                <img src="img/apple-airtag-stalking.jpg" class="img-fluid" />
+                <img src="img/apple-airtag-stalking.jpg" class="img-fluid" alt="AirTag stalking cover image"/>
                 <a href="#top">
                   <div class="Blog5 showBlog mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
@@ -368,7 +368,7 @@
             <div>
               <!-- Featured image -->
               <div class="bg-image hover-overlay shadow-1-strong ripple mb-4" data-mdb-ripple-color="light">
-                <img src="img/swift-playgrounds-4.jpg" class="img-fluid" />
+                <img src="img/swift-playgrounds-4.jpg" class="img-fluid" alt="Swift Playground cover image"/>
                 <a href="#top">
                   <div class="Blog6 showBlog mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
@@ -407,7 +407,7 @@
 
               <!-- Featured image -->
               <div class="bg-image hover-overlay shadow-1-strong ripple mb-4" data-mdb-ripple-color="light">
-                <img src="img/Apples-privacy.jpg" class="img-fluid" />
+                <img src="img/Apples-privacy.jpg" class="img-fluid" alt="Apple Privacy cover image"/>
                 <a href="#top">
                   <div class="Blog7 showBlog mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
@@ -452,12 +452,10 @@
       <!--Section: Content-->
 
     </div>
-  </main>
-  <!--Main layout-->
+    <!--Home layout-->
 
-  <!--Main layout-->
-  <main class="mt-4 mb-5" style="display: none" id="BlogBlock">
-    <div class="container">
+    <!--Blog layout-->
+    <div class="container mt-4 mb-5" style="display: none" id="BlogBlock">
       <!--Grid row-->
       <div class="row">
         <!--Grid column-->
@@ -465,13 +463,13 @@
           <!--Section: Post data-mdb-->
           <section class="border-bottom mb-4">
             <img src="img/iPhone-14.jpg"
-              class="img-fluid shadow-2-strong rounded mb-4" alt="" id="blogImg"/>
+              class="img-fluid shadow-2-strong rounded mb-4" alt="Blog's cover image" id="blogImg"/>
 
             <div class="row align-items-center mb-3">
               <div class="col-lg-6 text-center text-lg-start mb-3 m-lg-0">
                 <a href="#aboutAuthor">
                 <img src="img/author/chanceMiller.jpeg" class="rounded shadow-1-strong me-2"
-                  height="35" alt="" loading="lazy" id="blogAuthorImg"/>
+                  height="35" alt="Author's profile picture" loading="lazy" id="blogAuthorImg"/>
                 </a>
                 <span> Published <u id="publishDate">12.01.2022</u> by</span>
                 <a href="#aboutAuthor" class="text-dark" id="blogAuthorName">Chance Miller</a>
@@ -498,15 +496,12 @@
             <div class="row">
               <div class="col-1">
                 <img src="img/author/chanceMiller.jpeg"
-                  class="img-fluid shadow-1-strong rounded" alt="" id="aboutAuthorImg"/>
+                  class="img-fluid shadow-1-strong rounded" alt="Author's profile picture" id="aboutAuthorImg"/>
               </div>
 
               <div class="col-11">
                 <p class="mb-2"><a href="https://twitter.com/ChanceHMiller" class="text-dark" id="aboutAuthorTwitter" target="_blank"><strong id="aboutAuthorName">Chance Miller</strong> <i class="fab fa-twitter me-1"></i></a></p>
                 <p id="aboutAuthorContent">
-                  Chance is an editor for the entire 9to5 network and covers the latest Apple news for 9to5Mac.
-                  <br>
-                  Tips, questions, typos to <a href="mailto:chance@9to5mac.com">chance@9to5mac.com</a>
                 </p>
               </div>
             </div>
@@ -531,13 +526,13 @@
               <!-- Name input -->
               <div class="form-outline mb-4">
                 <input type="text" id="formInputName" class="form-control" name="Name" required/>
-                <label class="form-label" for="form4Example1">Name</label>
+                <label class="form-label">Name</label>
               </div>
 
               <!-- Message input -->
               <div class="form-outline mb-4">
                 <textarea class="form-control" id="formInputComment" rows="4" name="Text" required></textarea>
-                <label class="form-label" for="form4Example3">Comment</label>
+                <label class="form-label">Comment</label>
               </div>
 
               <!-- Error alert -->
@@ -567,17 +562,16 @@
       </div>
       <!--Grid row-->
     </div>
-  </main>
-  <!--Main layout-->
+    <!--Blog layout-->
 
-
-  <!--Main layout-->
-  <main class="my-5" style="display: none" id="SearchResultBlock">
-    <div class="container">
+    <!--Search Results layout-->
+    <div class="container my-5" style="display: none" id="SearchResultBlock">
       <!--Section: Content-->
       <section class="text-center" id="searchResultSection">
       </section>
     </div>
+    <!--Search Results layout-->
+
   </main>
 
   <!--Footer-->
@@ -619,9 +613,9 @@
 
 
   <!-- MDB -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script src="js/mdb.min.js"></script>
   <!-- Custom scripts -->
-  <script type="text/javascript" src="js/script.js"></script>
+  <script src="js/script.js"></script>
 
 </body>
 

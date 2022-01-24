@@ -80,7 +80,7 @@ describe('Test the blogs service', () => {
             .expect('Content-type', /json/);
     });
 
-    test('GET /blog?search_term=Apple includes Twitter', () => {
+    test('GET /blog?search_term=Apple includes Blog', () => {
         return request(app)
             .get('/blog?search_term=Apple')
             .expect(/Blog/);

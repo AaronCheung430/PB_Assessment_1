@@ -8,7 +8,7 @@ function backToHome () {
     blog.style.display = 'none';
     searchResult.style.display = 'none';
     document.getElementById('textJumbotron').innerHTML = '9to5mac';
-    document.getElementById('commentForm').reset();
+    cf.reset();
 }
 
 function goToBlog () {
@@ -21,7 +21,7 @@ function goToSearchResult () {
     home.style.display = 'none';
     blog.style.display = 'none';
     searchResult.style.display = 'block';
-    document.getElementById('searchForm').reset();
+    sf.reset();
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -71,21 +71,6 @@ document.querySelectorAll('.showBlog').forEach(function (i) {
     });
 });
 
-// document.querySelectorAll(".Blog1").forEach(function (i) {
-//     i.addEventListener("click", async function() {
-//         try{
-//             let response = await fetch('http://127.0.0.1:8090/blogs/1');
-//             if (response.ok) {
-//                 let body = await response.json();
-//                 document.getElementById('numberBlogForm').value="1";
-//                 loadBlog(body)
-//             }
-//         } catch(e) {
-//             showModal()
-//         }
-//     })
-// });
-
 function loadBlog (body) {
     document.getElementById('textJumbotron').innerHTML = body.Title;
     document.getElementById('publishDate').innerHTML = body.Date;
@@ -121,21 +106,21 @@ function loadBlog (body) {
 
 function loadComments (body) {
     const commentTitle = 'Comments: ' + body.Comments.length;
+    let commentName = '';
+    let commentText = '';
 
     let commentHTML = '<div class="text-center mb-3"><p class="h5"><strong>' + commentTitle + '</strong></p></div>';
 
     body.Comments.forEach(obj => {
         Object.entries(obj).forEach(([key, value]) => {
             if (key == 'Name') {
-                // eslint-disable-next-line no-undef
                 commentName = value;
             } else if (key == 'Text') {
-                // eslint-disable-next-line no-undef
                 commentText = value;
             }
         });
-        // eslint-disable-next-line no-undef
-        commentHTML += '<div class="card mb-4"><div class="card-body"><p class="small mb-0 mb-2"><strong>' + commentName + '</strong></p><p class="small mb-0 ms-2">' + commentText + '</p></div></div>';
+        commentHTML += '<div class="card mb-4"><div class="card-body"><p class="small mb-0 mb-2"><strong>' + commentName +
+        '</strong></p><p class="small mb-0 ms-2">' + commentText + '</p></div></div>';
     });
 
     document.getElementById('commentSection').innerHTML = commentHTML;
@@ -221,7 +206,6 @@ sf.addEventListener('submit', async function (event) {
 document.addEventListener('DOMNodeInserted', () => {
     document.querySelectorAll('.SearchBlog').forEach(function (i) {
         i.addEventListener('click', async function () {
-            console.log('You clicked');
             try {
                 const blogID = i.classList.item(0);
                 const n = blogID.substring(4);
@@ -252,7 +236,7 @@ cf.addEventListener('submit', async function (event) {
     try {
         const response = await fetch('http://127.0.0.1:8090/comments/new',
         {
-method: 'POST',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: formData
 });
@@ -263,7 +247,7 @@ method: 'POST',
             document.getElementById('commentSection').innerHTML = '';
             loadComments(body);
 
-            document.getElementById('commentForm').reset();
+            cf.reset();
             document.getElementById('numberBlogForm').value = blogID.toString();
 
             document.getElementById('commentAlert').style.display = 'none';
