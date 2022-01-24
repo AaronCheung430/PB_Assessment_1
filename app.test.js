@@ -1,21 +1,22 @@
+/* eslint-disable no-undef */
 'use strict';
 
 const request = require('supertest');
 const app = require('./app');
 
-const newCommentData = {Blog: 1, Name: "Steven", Text: "I can't wait for the new iPhone 14!!!"};
+const newCommentData = { Blog: 1, Name: 'Steven', Text: "I can't wait for the new iPhone 14!!!" };
 const newBlogData = {
-    "Title": "iPhone 14 Pro now rumored to feature ‘hole + pill design’ instead of notch",
-    "AuthorID": 1,
-    "Date": "12.01.2022",
-    "Type": [
-      "text-primary",
-      "<i class=\"fas fa-comment\"></i> Rumors"
+    Title: 'iPhone 14 Pro now rumored to feature ‘hole + pill design’ instead of notch',
+    AuthorID: 1,
+    Date: '12.01.2022',
+    Type: [
+      'text-primary',
+      '<i class="fas fa-comment"></i> Rumors'
     ],
-    "Image": "img/iPhone-14.jpg",
-    "Brief": "Your HTML code",
-    "Description": "Your HTML code",
-    "Comments": []
+    Image: 'img/iPhone-14.jpg',
+    Brief: 'Your HTML code',
+    Description: 'Your HTML code',
+    Comments: []
   };
 
 describe('Test the blogs service', () => {
