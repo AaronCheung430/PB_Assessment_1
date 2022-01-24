@@ -3,6 +3,9 @@ const express = require('express');
 const app = express();
 
 const database = JSON.parse(fs.readFileSync('./database.json'));
+const databaseBlogs = database.Blogs;
+const databaseAuthors = database.Authors;
+// console.log(databaseBlogs);
 
 app.use(express.json());
 app.use(express.static('client'));
@@ -11,7 +14,11 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/blogs/:blogNumber', function (req, resp) {
     const n = req.params.blogNumber;
     const blogID = 'Blog' + n;
-    resp.json(database.Blogs[blogID]);
+    if (Object.keys(databaseBlogs).includes(blogID)) {
+        resp.json(database.Blogs[blogID]);
+        return;
+    };
+    resp.status(400).send('Invalid blogID');
 });
 
 app.get('/blog', function (req, resp) {
@@ -33,7 +40,27 @@ app.get('/blog', function (req, resp) {
 app.get('/authors/:authorNumber', function (req, resp) {
     const n = req.params.authorNumber;
     const authorID = 'Author' + n;
-    resp.json(database.Authors[authorID]);
+    if (Object.keys(databaseAuthors).includes(authorID)) {
+        resp.json(database.Authors[authorID]);
+        return;
+    };
+    resp.status(400).send('Invalid authorID');
+});
+
+app.get('/author', function (req, resp) {
+    const searchTerm = req.query.search_term;
+    const searchAuthors = [];
+    // eslint-disable-next-line eqeqeq
+    if (searchTerm == '') {
+        resp.send(searchAuthors);
+        return;
+    }
+    for (const author of Object.entries(database.Authors)) {
+        if (author[1].FullName.toLowerCase().includes(searchTerm.toLowerCase())) {
+            searchAuthors.push(author);
+        }
+    };
+    resp.send(searchAuthors);
 });
 
 app.post('/comments/new', function (req, resp) {
@@ -53,13 +80,12 @@ app.post('/comments/new', function (req, resp) {
         resp.send(database.Blogs[blogID]);
         return;
     }
-    resp.send('Invalid comment');
+    resp.status(400).send('Invalid comment');
 });
 
 app.post('/blogs/new', function (req, resp) {
     const form = req.body;
     const blogDetail = form;
-    const databaseBlogs = database.Blogs;
 
     if (blogDetail.Title && blogDetail.AuthorID && blogDetail.Date && blogDetail.Type && blogDetail.Image && blogDetail.Brief && blogDetail.Description && blogDetail.Comments) {
         const databaseLastBlogID = Object.keys(databaseBlogs)[Object.keys(databaseBlogs).length - 1];
@@ -75,7 +101,7 @@ app.post('/blogs/new', function (req, resp) {
         resp.send(newBlogID);
         return;
     }
-    resp.send('Invalid Blog');
+    resp.status(400).send('Invalid blog');
 });
 
 module.exports = app;

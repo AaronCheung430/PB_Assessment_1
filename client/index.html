@@ -40,21 +40,23 @@
           </ul>
           <ul class="navbar-nav d-flex flex-row">
             <!-- Search bar (form) -->
-            <form class="d-flex input-group w-auto" action="/blog" id="searchForm">
-              <input
-                type="search"
-                class="form-control rounded"
-                placeholder="Search"
-                aria-label="Search"
-                aria-describedby="search-addon"
-                style="margin-top: 3px;"
-                id="searchInput"
-                name="search_term"
-              />
-              <button class="input-group-text border-0" id="search-addon">
-                <i class="fas fa-search"></i>
-              </button>
-            </form>
+            <li>
+              <form class="d-flex input-group w-auto" action="/blog" id="searchForm">
+                <input
+                  type="search"
+                  class="form-control rounded"
+                  placeholder="Search"
+                  aria-label="Search"
+                  aria-describedby="search-addon"
+                  style="margin-top: 3px;"
+                  id="searchInput"
+                  name="search_term"
+                />
+                <button class="input-group-text border-0" id="search-addon">
+                  <i class="fas fa-search"></i>
+                </button>
+              </form>
+            </li>
             <!-- Search bar (form) -->
             <!-- Notification dropdown -->
             <li class="nav-item dropdown me-3 me-lg-0">
@@ -186,9 +188,7 @@
                 but now reliable analyst Ross Young says that Apple will use a “hole + pill design” on the iPhone 14 Pro and iPhone 14 Pro Max.
               </p>
             </a>
-            <a href='#top'>
-              <button type="button" class="Blog1 showBlog btn btn-primary">Read more</button>
-            </a>
+            <a class="Blog1 showBlog btn btn-primary" href='#top'>Read more</a>
           </div>
         </div>
       </section>
@@ -475,9 +475,9 @@
                 <a href="#aboutAuthor" class="text-dark" id="blogAuthorName">Chance Miller</a>
               </div>
               <div class="col-lg-6">
-                <span class="text-end text-primary" id="typeColour">
+                <div class="text-end text-primary" id="typeColour">
                   <h6 class="h6 pb-1" id="typeName"><i class="fas fa-comment"></i> Rumors</h6>
-                </span>
+                </div>
               </div>
             </div>
           </section>

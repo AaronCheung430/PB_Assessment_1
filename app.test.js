@@ -18,6 +18,7 @@ const newBlogData = {
     Description: 'Your HTML code',
     Comments: []
   };
+const invalidData = {};
 
 describe('Test the blogs service', () => {
     test('GET the root path succeeds', () => {
@@ -31,6 +32,8 @@ describe('Test the blogs service', () => {
             .get('/')
             .expect('Content-type', /html/);
     });
+
+    // --------------------------------------------------
 
     test('GET /blogs/1 succeeds', () => {
         return request(app)
@@ -50,23 +53,27 @@ describe('Test the blogs service', () => {
             .expect(/Title/);
     });
 
-    test('GET /authors/2 succeeds', () => {
+    // --------------------------------------------------
+
+    test('GET /blogs/iPhone bad request', () => {
         return request(app)
-            .get('/authors/2')
-            .expect(200);
+            .get('/blogs/iPhone')
+            .expect(400);
     });
 
-    test('GET /authors/2 return JSON', () => {
+    test('GET /blogs/iPhone return text', () => {
         return request(app)
-            .get('/authors/2')
-            .expect('Content-type', /json/);
+            .get('/blogs/iPhone')
+            .expect('Content-type', /text/);
     });
 
-    test('GET /authors/2 includes Twitter', () => {
+    test('GET /blogs/iPhone includes invalid blogID', () => {
         return request(app)
-            .get('/authors/2')
-            .expect(/Twitter/);
+            .get('/blogs/iPhone')
+            .expect(/Invalid blogID/);
     });
+
+    // --------------------------------------------------
 
     test('GET /blog?search_term=Apple succeeds', () => {
         return request(app)
@@ -85,6 +92,148 @@ describe('Test the blogs service', () => {
             .get('/blog?search_term=Apple')
             .expect(/Blog/);
     });
+
+    // --------------------------------------------------
+
+    test('GET /blog?search_term= succeeds', () => {
+        return request(app)
+            .get('/blog?search_term=')
+            .expect(200);
+    });
+
+    test('GET /blog?search_term= return JSON', () => {
+        return request(app)
+            .get('/blog?search_term=')
+            .expect('Content-type', /json/);
+    });
+
+    test('GET /blog?search_term= includes []', () => {
+        return request(app)
+            .get('/blog?search_term=')
+            .expect(/\[\]/);
+    });
+
+    // --------------------------------------------------
+
+    test('GET /blog?search_term=ProgrammingBlack succeeds', () => {
+        return request(app)
+            .get('/blog?search_term=ProgrammingBlack')
+            .expect(200);
+    });
+
+    test('GET /blog?search_term=ProgrammingBlack return JSON', () => {
+        return request(app)
+            .get('/blog?search_term=ProgrammingBlack')
+            .expect('Content-type', /json/);
+    });
+
+    test('GET /blog?search_term=ProgrammingBlack includes []', () => {
+        return request(app)
+            .get('/blog?search_term=ProgrammingBlack')
+            .expect(/\[\]/);
+    });
+
+    // --------------------------------------------------
+
+    test('GET /authors/2 succeeds', () => {
+        return request(app)
+            .get('/authors/2')
+            .expect(200);
+    });
+
+    test('GET /authors/2 return JSON', () => {
+        return request(app)
+            .get('/authors/2')
+            .expect('Content-type', /json/);
+    });
+
+    test('GET /authors/2 includes Twitter', () => {
+        return request(app)
+            .get('/authors/2')
+            .expect(/Twitter/);
+    });
+
+    // --------------------------------------------------
+
+    test('GET /authors/Steven bad request', () => {
+        return request(app)
+            .get('/authors/Steven')
+            .expect(400);
+    });
+
+    test('GET /authors/Steven return text', () => {
+        return request(app)
+            .get('/authors/Steven')
+            .expect('Content-type', /text/);
+    });
+
+    test('GET /authors/Steven includes invalid authorID', () => {
+        return request(app)
+            .get('/authors/Steven')
+            .expect(/Invalid authorID/);
+    });
+
+    // --------------------------------------------------
+
+    test('GET /author?search_term=Ben succeeds', () => {
+        return request(app)
+            .get('/author?search_term=Ben')
+            .expect(200);
+    });
+
+    test('GET /author?search_term=Ben return JSON', () => {
+        return request(app)
+            .get('/author?search_term=Ben')
+            .expect('Content-type', /json/);
+    });
+
+    test('GET /author?search_term=Ben includes Blog', () => {
+        return request(app)
+            .get('/author?search_term=Ben')
+            .expect(/Author/);
+    });
+
+    // --------------------------------------------------
+
+    test('GET /author?search_term= succeeds', () => {
+        return request(app)
+            .get('/author?search_term=')
+            .expect(200);
+    });
+
+    test('GET /author?search_term= return JSON', () => {
+        return request(app)
+            .get('/author?search_term=')
+            .expect('Content-type', /json/);
+    });
+
+    test('GET /author?search_term= includes []', () => {
+        return request(app)
+            .get('/author?search_term=')
+            .expect(/\[\]/);
+    });
+
+    // --------------------------------------------------
+
+    test('GET /author?search_term=Steven succeeds', () => {
+        return request(app)
+            .get('/author?search_term=Steven')
+            .expect(200);
+    });
+
+    test('GET /author?search_term=Steven return JSON', () => {
+        return request(app)
+            .get('/author?search_term=Steven')
+            .expect('Content-type', /json/);
+    });
+
+    test('GET /author?search_term=Steven includes []', () => {
+        return request(app)
+            .get('/author?search_term=Steven')
+            .expect(/\[\]/);
+    });
+
+    // --------------------------------------------------
 
     test('POST /comments/new succeeds', () => {
         return request(app)
@@ -107,6 +256,31 @@ describe('Test the blogs service', () => {
                 .expect(/Steven/);
     });
 
+    // --------------------------------------------------
+
+    test('POST /comments/new bad request', () => {
+        return request(app)
+            .post('/comments/new')
+            .send(invalidData)
+                .expect(400);
+    });
+
+    test('POST /comments/new return text', () => {
+        return request(app)
+            .post('/comments/new')
+            .send(invalidData)
+                .expect('Content-type', /text/);
+    });
+
+    test('POST /comments/new includes invalid comment', () => {
+        return request(app)
+            .post('/comments/new')
+            .send(invalidData)
+                .expect(/Invalid comment/);
+    });
+
+    // --------------------------------------------------
+
     test('POST /blogs/new succeeds', () => {
         return request(app)
             .post('/blogs/new')
@@ -126,5 +300,28 @@ describe('Test the blogs service', () => {
             .post('/blogs/new')
             .send(newBlogData)
                 .expect(/Blog/);
+    });
+
+    // --------------------------------------------------
+
+    test('POST /blogs/new bad request', () => {
+        return request(app)
+            .post('/blogs/new')
+            .send(invalidData)
+                .expect(400);
+    });
+
+    test('POST /blogs/new return text', () => {
+        return request(app)
+            .post('/blogs/new')
+            .send(invalidData)
+                .expect('Content-type', /text/);
+    });
+
+    test('POST /blogs/new includes invalid blog', () => {
+        return request(app)
+            .post('/blogs/new')
+            .send(invalidData)
+                .expect(/Invalid blog/);
     });
 });
