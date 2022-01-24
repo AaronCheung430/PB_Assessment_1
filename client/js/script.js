@@ -21,6 +21,7 @@ function goToSearchResult() {
     home.style.display = "none";
     blog.style.display = "none";
     searchResult.style.display = "block";
+    document.getElementById("searchForm").reset()
 }
 
 function refreshPage(){
@@ -30,6 +31,15 @@ function refreshPage(){
 function showModal() {
     myModal = new mdb.Modal(document.getElementById('staticBackdrop'))
     myModal.show()
+}
+
+function validateForm() {
+    var x = document.forms["commentForm"]["Name"].value;
+    var y = document.forms["commentForm"]["Text"].value;
+    if (x == "" || y == "")  {
+        document.getElementById('commentAlert').style.display = "block";
+        document.getElementById('commentPosted').style.display = "none";
+    }
 }
 
 document.querySelectorAll(".Home").forEach(function (i) {
@@ -57,7 +67,6 @@ document.querySelectorAll(".showBlog").forEach(function (i) {
         }
     })
 });
-
 
 // document.querySelectorAll(".Blog1").forEach(function (i) {
 //     i.addEventListener("click", async function() {
@@ -98,7 +107,6 @@ function loadBlog(body) {
                 document.getElementById('aboutAuthorTwitter').href= body.Twitter
                 document.getElementById('aboutAuthorContent').innerHTML= body.Description
 
-
             }
         } catch(e) {
             showModal()
@@ -106,15 +114,11 @@ function loadBlog(body) {
     }
 
     fetchAuthor(authorID)
-
     loadComments(body)
-
     goToBlog()
 };
 
 function loadComments(body) {
-
-    console.log(body.Comments.length)
 
     commentTitle= "Comments: " + body.Comments.length
 
@@ -135,24 +139,64 @@ function loadComments(body) {
     document.getElementById('commentSection').innerHTML= commentHTML
 }
 
-// function loadSearch(body) {
+function loadSearch(body) {
 
-//     document.getElementById('searchCover').src= body.Image
-//     document.getElementById('searchBrief').innerHTML= body.Date
-//     document.getElementById('typeColour').className= "text-end " + body.Type[0]
+    if (body == "") {
+        document.getElementById('searchResultSection').innerHTML = "<h2>Sorry, no matches were found. <br>Try a new search</h2>"
+        goToSearchResult()
+        return
+    };
 
-// };
+    let counter = 0
+    let searchResultNumber = Object.keys(body).length
+    let searchResultHTML = `<div class="row">`
 
+    for (const blog of body) {
 
-// var input = document.getElementById("search-addon");
-// document.getElementById("searchInput").addEventListener("keyup", function(event) {
-//   if (event.key === 'Enter') {
-//    event.preventDefault();
-// //    document.getElementById('searchForm').submit()
-//    alert('Hello World!')
-//   }
-// });
+        if (counter == 3 && searchResultNumber > 0) {
+            searchResultHTML += `</div><div class="row">`
+            counter = 0
+        }
 
+        searchResultHTML +=
+        `
+        <div class="col-lg-4 col-md-12 mb-4">
+          <div class="card">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+              <img src="${blog[1].Image}" class="img-fluid" id="searchCover"/>
+              <a href="#top">
+                <div class="` + blog[0] + ` SearchBlog mask" style="background-color: rgba(251, 251, 251, 0.15);" id=:"searchResultCard${blog[0]}"></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">${blog[1].Title}</h5>
+          <div class="row">
+            <div class="col-6">
+              <span class="${blog[1].Type[0]}">
+                <h6 class="h6 pb-1">${blog[1].Type[1]}</h6>
+                </span>
+              </div>
+              <div class="col-6 text-center text-muted">
+                <span class='text-muted'>
+                  <h6><u> ${blog[1].Date}</u></h6>
+                  </span>
+                </div>
+              </div>
+              <p class="card-text">${blog[1].Brief}</p>
+              <a href="#top" class="` + blog[0] + ` SearchBlog btn btn-primary" id="searchReadBtn">Read</a>
+            </div>
+          </div>
+        </div>`
+
+        counter += 1
+        searchResultNumber -= 1
+    };
+
+    searchResultHTML += `</div>`
+    document.getElementById('searchResultSection').innerHTML = searchResultHTML
+
+    goToSearchResult()
+};
 
 const sf = document.getElementById("searchForm")
 
@@ -165,76 +209,14 @@ sf.addEventListener("submit", async function(event) {
         if (response.ok) {
             let body = await response.json();
 
-            // document.getElementById('content').innerHTML = body;
             document.getElementById('textJumbotron').innerHTML= "Searches for: " + data.get('search_term');
 
-            // loadSearch(body)
-            if (body == "") {
-                document.getElementById('searchResultSection').innerHTML = "<h2>Sorry, no matches were found. <br>Try a new search</h2>"
-                goToSearchResult()
-                return
-            };
-
-            let counter = 0
-            let searchResultNumber = Object.keys(body).length
-            let searchResultHTML = `<div class="row">`
-
-            for (const blog of body) {
-
-                // n = blog[0].substring(4)
-
-                if (counter == 3 && searchResultNumber > 0) {
-                    searchResultHTML += `</div><div class="row">`
-                }
-
-                searchResultHTML +=
-                `
-                <div class="col-lg-4 col-md-12 mb-4">
-                  <div class="card">
-                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                      <img src="${blog[1].Image}" class="img-fluid" id="searchCover"/>
-                      <a href="#top">
-                        <div class="` + blog[0] + ` SearchBlog mask" style="background-color: rgba(251, 251, 251, 0.15);" id=:"searchResultCard${blog[0]}"></div>
-                    </a>
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title">${blog[1].Title}</h5>
-                  <div class="row">
-                    <div class="col-6">
-                      <span class="${blog[1].Type[0]}">
-                        <h6 class="h6 pb-1">${blog[1].Type[1]}</h6>
-                        </span>
-                      </div>
-                      <div class="col-6 text-center text-muted">
-                        <span class='text-muted'>
-                          <h6><u> ${blog[1].Date}</u></h6>
-                          </span>
-                        </div>
-                      </div>
-                      <p class="card-text">${blog[1].Brief}</p>
-                      <a href="#top" class="` + blog[0] + ` SearchBlog btn btn-primary" id="searchReadBtn">Read</a>
-                    </div>
-                  </div>
-                </div>`
-
-                counter += 1
-                searchResultNumber -= 1
-            };
-
-            searchResultHTML += `</div>`
-            document.getElementById('searchResultSection').innerHTML = searchResultHTML
-
-            // console.log(searchResultHTML)
-
-            goToSearchResult()
-
+            loadSearch(body)
         };
     } catch(e) {
-        console.log(e)
         showModal()
     };
 });
-
 
 document.addEventListener("DOMNodeInserted", () => {
     document.querySelectorAll(".SearchBlog").forEach(function (i) {
@@ -289,21 +271,7 @@ cf.addEventListener("submit", async function(event) {
         }
 
     } catch(e) {
-        console.log(e)
         showModal()
     };
 
 });
-
-function validateForm() {
-    var x = document.forms["commentForm"]["Name"].value;
-    var y = document.forms["commentForm"]["Text"].value;
-    if (x == "" || y == "")  {
-        document.getElementById('commentAlert').style.display = "block";
-        document.getElementById('commentPosted').style.display = "none";
-    }
-  }
-
-
-
-

@@ -6,7 +6,7 @@ const database = JSON.parse(fs.readFileSync("./database.json"));
 
 app.use(express.json());
 app.use(express.static('client'));
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/blogs/:blogNumber', function (req, resp){
     let n = req.params.blogNumber
@@ -19,10 +19,10 @@ app.get('/blog', function (req, resp){
     let searchBlogs = [];
     if (searchTerm == '') {
         resp.send(searchBlogs)
+        return
     }
     for (let blog of Object.entries(database.Blogs)) {
         if (blog[1].Description.toLowerCase().includes(searchTerm.toLowerCase())) {
-            console.log("Found");
             searchBlogs.push(blog);
         }
     };
