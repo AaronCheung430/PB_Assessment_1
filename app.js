@@ -37,21 +37,44 @@ app.get('/authors/:authorNumber', function (req, resp){
 
 app.post('/comments/new', function (req, resp){
     let form = req.body
-    console.log(JSON.stringify(form))
-    // form.Blog
-    // if form.Blog
-    let n = form["Blog"]
-    let blogID = "Blog" + n
-    console.log(blogID)
-    delete form["Blog"];
 
-    database.Blogs[blogID].Comments.push(form)
+    if (form.Blog && form.Name && form.Text) {
+        let n = form["Blog"]
+        let blogID = "Blog" + n
+        delete form["Blog"];
 
-    fs.writeFile("./database.json", JSON.stringify(database, null, 2), err => {
-        if (err) console.log("Error writing file:", err);
-    });
+        database.Blogs[blogID].Comments.push(form)
 
-    resp.send(database.Blogs[blogID])
+        fs.writeFile("./database.json", JSON.stringify(database, null, 2), err => {
+            if (err) console.log("Error writing file:", err);
+        });
+
+        resp.send(database.Blogs[blogID])
+        return
+    }
+    resp.send("Invalid comment")
+});
+
+app.post('/blogs/new', function (req, resp){
+    let form = req.body
+    let blogDetail = form
+    let databaseBlogs = database.Blogs
+
+    if (blogDetail.Title && blogDetail.AuthorID && blogDetail.Date && blogDetail.Type && blogDetail.Image && blogDetail.Brief && blogDetail.Description && blogDetail.Comments) {
+        let databaseLastBlogID = Object.keys(databaseBlogs)[Object.keys(databaseBlogs).length - 1]
+        let newBlogNum = parseInt(databaseLastBlogID.substring(4)) + 1
+        let newBlogID = "Blog" + newBlogNum
+
+        database.Blogs[newBlogID] = form
+
+        fs.writeFile("./database.json", JSON.stringify(database, null, 2), err => {
+                if (err) console.log("Error writing file:", err);
+            });
+
+        resp.send(newBlogID)
+        return
+    }
+    resp.send("Invalid Blog")
 });
 
 module.exports = app;
