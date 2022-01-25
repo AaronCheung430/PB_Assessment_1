@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AaronCheung430/PB_Assessment_1.git"
+    "url": "git+https://github.com/stevenaeola/goats.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AaronCheung430/PB_Assessment_1/issues"
+    "url": "https://github.com/stevenaeola/goats/issues"
   },
-  "homepage": "https://github.com/AaronCheung430/PB_Assessment_1#readme",
+  "homepage": "https://github.com/stevenaeola/goats#readm",
   "dependencies": {
     "express": "^4.17.2"
   },

@@ -20,7 +20,7 @@ const newBlogData = {
   };
 const invalidData = {};
 
-describe('Test the blogs service', () => {
+describe('Test the blogging service', () => {
     test('GET the root path succeeds', () => {
         return request(app)
             .get('/')
