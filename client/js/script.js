@@ -8,7 +8,6 @@ function backToHome () {
     blog.style.display = 'none';
     searchResult.style.display = 'none';
     document.getElementById('textJumbotron').innerHTML = '9to5mac';
-    cf.reset();
 }
 
 function goToBlog () {
@@ -62,6 +61,7 @@ document.querySelectorAll('.showBlog').forEach(function (i) {
             const response = await fetch('http://127.0.0.1:8090/blogs/' + n);
             if (response.ok) {
                 const body = await response.json();
+                cf.reset();
                 document.getElementById('numberBlogForm').value = n.toString();
                 loadBlog(body);
             }
@@ -98,6 +98,9 @@ function loadBlog (body) {
             showModal();
         }
     }
+
+    document.getElementById('commentPosted').style.display = 'none';
+    document.getElementById('commentAlert').style.display = 'none';
 
     fetchAuthor(authorID);
     loadComments(body);
@@ -212,6 +215,7 @@ document.addEventListener('DOMNodeInserted', () => {
                 const response = await fetch('http://127.0.0.1:8090/blogs/' + n);
                 if (response.ok) {
                     const body = await response.json();
+                    cf.reset();
                     document.getElementById('numberBlogForm').value = n.toString();
                     loadBlog(body);
                 }
